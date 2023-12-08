@@ -13,6 +13,10 @@ header div a img{
     width: 50px;
 }
 
+.imgFooter{
+    height: 10vh;
+}
+
 @media all and (max-width: 767px){
     header div a img{
         margin-left: 10px;
