@@ -5,6 +5,11 @@ body{
     font-family: Roboto;
 }
 
+main{
+    display: flex;
+    align-items: center;
+}
+
 @media all and (min-width: 568px) and (max-width: 990px){
     h2{
         font-size: 48px
