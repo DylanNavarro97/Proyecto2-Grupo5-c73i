@@ -1,0 +1,16 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap');
+
+body{
+    background-color: #6f1abe;
+    font-family: Roboto;
+}
+
+@media all and (max-width: 567px){
+    h2{
+        font-size: 24px
+    }
+
+    p{
+        font-size: 18px
+    }
+}
