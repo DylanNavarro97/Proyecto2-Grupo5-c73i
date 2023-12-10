@@ -10,6 +10,25 @@ main{
     align-items: center;
 }
 
+.imagen {
+    order: 2;
+    display: flex;
+    justify-content: center;
+}
+
+.texto {
+    display: flex;
+    align-items: center;
+}
+
+h2{
+    font-size: 48px
+}
+
+p{
+    font-size: 24px
+}
+
 @media all and (min-width: 568px) and (max-width: 990px){
     h2{
         font-size: 48px
