@@ -42,6 +42,6 @@ Si te interesa ver nuestra pagina funcionando pueder hacer click en el siguiente
 - [@DylanNavarro97](https://github.com/DylanNavarro97)
 - [@manusantiaraoz](https://github.com/manusantiaraoz)
 - [@Elias-Juarez](https://github.com/Elias-Juarez)
-- [@Dhem](https://github.com/)
-- [@Ramiro](https://github.com/)
+- [@RamiVel97](https://github.com/RamiVel97)
+- [@ejdavenheimer](https://github.com/ejdavenheimer)
 
