@@ -1,0 +1,40 @@
+h2,h3,h4,h5{
+    font-family: 'Roboto', sans-serif;
+}
+p,button,form,table{
+    font-family: 'Nunito Sans', sans-serif;
+}
+.iconoAgregar{
+    color: #B51CBC; 
+    font-style: normal; 
+} 
+.btnBordes{
+    border: 1px #B51CBC solid;
+    margin-right: 5%;
+}
+.imgCancion{
+    width: 8vh;
+}
+
+.iconosBtn{
+    font-size: larger;
+}
+
+
+@media all and (max-width: 767px){
+    .btnBordes{
+        width: 100%;
+        margin-right: 0%;
+    }
+    .centrarCardSm{
+        display: flex;
+        flex-direction: column;
+        align-content: center;
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+    .imgCancion{
+        width: 15vh;
+       
+    }
+}
