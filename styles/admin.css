@@ -5,11 +5,11 @@ p,button,form,table{
     font-family: 'Nunito Sans', sans-serif;
 }
 .iconoAgregar{
-    color: #B51CBC; 
+    color: #faffeb; 
     font-style: normal; 
 } 
 .btnBordes{
-    border: 1px #B51CBC solid;
+    border: 1px #6208f3 solid;
     margin-right: 5%;
 }
 .imgCancion{
@@ -19,11 +19,14 @@ p,button,form,table{
 .iconosBtn{
     font-size: larger;
 }
-
+.fondoAdmin{
+    border: 1px #6208f3 solid;
+    padding: 2%;
+}
 
 @media all and (max-width: 767px){
     .btnBordes{
-        width: 100%;
+    
         margin-right: 0%;
     }
     .centrarCardSm{
