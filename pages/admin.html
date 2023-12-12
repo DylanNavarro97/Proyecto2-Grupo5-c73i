@@ -98,9 +98,9 @@
       <article>
         <h2 class="text-center text-ligth my-3">Panel Administrador</h2>
       </article>
-      <article class="container d-flex flex-column fondoAdmin rounded ">
+      <article class="container d-flex flex-column fondoAdmin rounded bg-black ">
       <section class="d-flex justify-content-md-end align-content-md-end justify-content-center align-content-center">
-        <button type="button" class="btn btn-dark btnBordes" data-bs-toggle="modal" data-bs-target="#exampleModal">
+        <button type="button" class="btn btn-dark btnBordes mt-3" data-bs-toggle="modal" data-bs-target="#exampleModal">
           <i class="bi bi-cloud-plus iconoAgregar"> Agregar Canción</i>
         </button>
       </section>
@@ -254,27 +254,31 @@
 <!-- zona modal -->
 <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog">
-    <div class="modal-content">
+    <div class="modal-content marcoModal bg-black">
       <div class="modal-header">
-        <h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1>
+        <h2 class="modal-title fs-5 text-center" id="exampleModalLabel">Cargar Canción</h2>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
-      <div class="modal-body">
+      <div class="modal-body text-center">
         <form>
           <div class="mb-3">
-            <label for="exampleInputEmail1" class="form-label">Email address</label>
-            <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
-            <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
+            <label for="artistaInput" class="form-label">Artista</label>
+            <input type="text" class="form-control" id="artistainput" aria-describedby="emailHelp" minlength="2" maxlength="30" required>
           </div>
           <div class="mb-3">
-            <label for="exampleInputPassword1" class="form-label">Password</label>
-            <input type="password" class="form-control" id="exampleInputPassword1">
+            <label for="cancionInput" class="form-label">Canción</label>
+            <input type="text" class="form-control" id="cancionInput" minlength="2" maxlength="50" required>
           </div>
-          <div class="mb-3 form-check">
-            <input type="checkbox" class="form-check-input" id="exampleCheck1">
-            <label class="form-check-label" for="exampleCheck1">Check me out</label>
+          <div class="mb-3">
+            <label for="imgInput" class="form-label">link imagen</label>
+            <input type="url" class="form-control" id="imgInput" minlength="1" maxlength="2000" required>
           </div>
-          <button type="submit" class="btn btn-primary">Submit</button>
+          <div class="mb-3">
+            <label for="cancionInput" class="form-label">link Canción</label>
+            <input type="url" class="form-control" id="cancionInput" minlength="1" maxlength="2000" required>
+          </div>
+         
+          <button type="submit" class="btn  btn-outline-success btnsubmit w-75"><i class="bi bi-floppy"></i> Guardar</button>
         </form> 
       </div>
     </div>
