@@ -9,7 +9,7 @@ p,button,form,table{
     font-style: normal; 
 } 
 .btnBordes{
-    border: 1px #6208f3 solid;
+    border: 1px #eb08f3 solid;
     margin-right: 5%;
 }
 .imgCancion{
@@ -20,7 +20,7 @@ p,button,form,table{
     font-size: larger;
 }
 .fondoAdmin{
-    border: 1px #6208f3 solid;
+    border: 1px #eb08f3 solid;
     padding: 2%;
 }
 
