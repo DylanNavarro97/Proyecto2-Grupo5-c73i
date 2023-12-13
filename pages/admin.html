@@ -67,9 +67,7 @@
                   placeholder="Search"
                   aria-label="Search"
                 />
-                <button class="btn btnBordes" type="submit">
-                  Search
-                </button>
+                <button class="btn btnBordes" type="submit">Search</button>
               </form>
             </div>
 
@@ -98,12 +96,19 @@
       <article>
         <h2 class="text-center text-ligth my-3">Panel Administrador</h2>
       </article>
-      <article class="container d-flex flex-column fondoAdmin rounded bg-black ">
-      <section class="d-flex justify-content-md-end align-content-md-end justify-content-center align-content-center">
-        <button type="button" class="btn btn-dark btnBordes mt-3" data-bs-toggle="modal" data-bs-target="#modalAgregarCancion">
-          <i class="bi bi-cloud-plus iconoAgregar"> Agregar Canción</i>
-        </button>
-      </section>
+      <article class="container d-flex flex-column fondoAdmin rounded bg-black">
+        <section
+          class="d-flex justify-content-md-end align-content-md-end justify-content-center align-content-center"
+        >
+          <button
+            type="button"
+            class="btn btn-dark btnBordes mt-3"
+            data-bs-toggle="modal"
+            data-bs-target="#modalAgregarCancion"
+          >
+            <i class="bi bi-cloud-plus iconoAgregar"> Agregar Canción</i>
+          </button>
+        </section>
         <div class="card w-100 my-3 border-0 border-bottom">
           <div
             class="card-body d-md-flex justify-content-md-between centrarCardSm"
@@ -118,21 +123,35 @@
             <div
               class="d-flex flex-column flex-wrap justify-content-center align-content-start container ps-5"
             >
-              <h5 class="card-title mt-sm-2">Caballo Homosexual de las Montañas</h5>
+              <h5 class="card-title mt-sm-2">
+                Caballo Homosexual de las Montañas
+              </h5>
               <p class="card-text">Karil</p>
             </div>
             <div
               class="d-flex flex-wrap my-2 justify-content-center align-content-center container"
             >
-              <button class="btn btn-outline-info" data-bs-toggle="modal" data-bs-target="#modalCardDetalles"
-                ><i class="bi bi-three-dots iconosBtn"></i
-              ></button>
-              <button class="btn btn-outline-warning mx-2" data-bs-toggle="modal" data-bs-target="#modalModificarCancion"
-                ><i class="bi bi-pencil-square iconosBtn"></i
-              ></button>
-              <button class="btn btn-outline-danger"
-                ><i class="bi bi-trash iconosBtn"></i
-              ></button>
+              <button
+                class="btn btn-outline-info"
+                data-bs-toggle="modal"
+                data-bs-target="#modalCardDetalles"
+              >
+                <i class="bi bi-three-dots iconosBtn"></i>
+              </button>
+              <button
+                class="btn btn-outline-warning mx-2"
+                data-bs-toggle="modal"
+                data-bs-target="#modalModificarCancion"
+              >
+                <i class="bi bi-pencil-square iconosBtn"></i>
+              </button>
+              <button
+                class="btn btn-outline-danger"
+                data-bs-toggle="modal"
+                data-bs-target="#modalEliminar"
+              >
+                <i class="bi bi-trash iconosBtn"></i>
+              </button>
             </div>
           </div>
         </div>
@@ -154,7 +173,7 @@
               <p class="card-text">Babasonicos</p>
             </div>
             <div
-              class="d-flex flex-wrap my-2 justify-content-center align-content-center container "
+              class="d-flex flex-wrap my-2 justify-content-center align-content-center container"
             >
               <a href="#" class="btn btn-outline-info"
                 ><i class="bi bi-three-dots iconosBtn"></i
@@ -182,7 +201,9 @@
             <div
               class="d-flex flex-column flex-wrap justify-content-center align-content-start container ps-5"
             >
-              <h5 class="card-title mt-sm-2">Que hago yo esperando un punto as?</h5>
+              <h5 class="card-title mt-sm-2">
+                Que hago yo esperando un punto as?
+              </h5>
               <p class="card-text">Las pastillas del abuelo</p>
             </div>
             <div
@@ -250,138 +271,325 @@
         </div>
       </div>
     </footer>
-
-<!-- zona modal -->
-<div class="modal fade" id="modalAgregarCancion" tabindex="-1" aria-labelledby="modalAgregarCancionLabel" aria-hidden="true">
-  <div class="modal-dialog">
-    <div class="modal-content marcoModal bg-black">
-      <div class="modal-header">
-        <h2 class="modal-title fs-5 text-center" id="modalAgregarCancionLabel">Cargar Canción</h2>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-      </div>
-      <div class="modal-body text-center">
-        <form>
-          <div class="mb-3">
-            <label for="artistaInput" class="form-label">Artista</label>
-            <input type="text" class="form-control" id="artistainput" aria-describedby="emailHelp" minlength="2" maxlength="30" required>
-          </div>
-          <div class="mb-3">
-            <label for="cancionInput" class="form-label">Canción</label>
-            <input type="text" class="form-control" id="cancionInput" minlength="2" maxlength="50" required>
-          </div>
-          <div class="mb-3">
-            <label for="cancionInput" class="form-label">Genero</label>
-            <input type="text" class="form-control" id="cancionInput" minlength="2" maxlength="50" required>
-          </div>
-          <div class="mb-3">
-            <label for="imgInput" class="form-label">link imagen</label>
-            <input type="url" class="form-control" id="imgInput" minlength="1" maxlength="2000" required>
-          </div>
-          <div class="mb-3">
-            <label for="cancionInput" class="form-label">link Canción</label>
-            <input type="url" class="form-control" id="cancionInput" minlength="1" maxlength="2000" required>
-          </div>
-          <button type="submit" class="btn  btn-outline-success btnsubmit w-75"><i class="bi bi-floppy"></i> Guardar</button>
-        </form> 
+  </body>
+  <!-- zona modal -->
+  <div
+    class="modal fade"
+    id="modalAgregarCancion"
+    tabindex="-1"
+    aria-labelledby="modalAgregarCancionLabel"
+    aria-hidden="true"
+  >
+    <div class="modal-dialog">
+      <div class="modal-content marcoModal bg-black">
+        <div class="modal-header">
+          <h2
+            class="modal-title fs-5 text-center"
+            id="modalAgregarCancionLabel"
+          >
+            Cargar Canción
+          </h2>
+          <button
+            type="button"
+            class="btn-close"
+            data-bs-dismiss="modal"
+            aria-label="Close"
+          ></button>
+        </div>
+        <div class="modal-body text-center">
+          <form>
+            <div class="mb-3">
+              <label for="artistaInput" class="form-label">Artista</label>
+              <input
+                type="text"
+                class="form-control"
+                id="artistainput"
+                aria-describedby="emailHelp"
+                minlength="2"
+                maxlength="30"
+                required
+              />
+            </div>
+            <div class="mb-3">
+              <label for="cancionInput" class="form-label">Canción</label>
+              <input
+                type="text"
+                class="form-control"
+                id="cancionInput"
+                minlength="2"
+                maxlength="50"
+                required
+              />
+            </div>
+            <div class="mb-3">
+              <label for="cancionInput" class="form-label">Genero</label>
+              <input
+                type="text"
+                class="form-control"
+                id="cancionInput"
+                minlength="2"
+                maxlength="50"
+                required
+              />
+            </div>
+            <div class="mb-3">
+              <label for="imgInput" class="form-label">link imagen</label>
+              <input
+                type="url"
+                class="form-control"
+                id="imgInput"
+                minlength="1"
+                maxlength="2000"
+                required
+              />
+            </div>
+            <div class="mb-3">
+              <label for="cancionInput" class="form-label">link Canción</label>
+              <input
+                type="url"
+                class="form-control"
+                id="cancionInput"
+                minlength="1"
+                maxlength="2000"
+                required
+              />
+            </div>
+            <button
+              type="submit"
+              class="btn btn-outline-success btnsubmit w-75"
+            >
+              <i class="bi bi-floppy"></i> Guardar
+            </button>
+          </form>
+        </div>
       </div>
     </div>
   </div>
-</div>
-<div class="modal fade" id="modalModificarCancion" tabindex="-1" aria-labelledby="modalModificarCancionLabel" aria-hidden="true">
-  <div class="modal-dialog">
-    <div class="modal-content marcoModal bg-black">
-      <div class="modal-header">
-        <h2 class="modal-title fs-5 text-center" id="modalModificarCancionLabel">Modificar Canción</h2>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-      </div>
-      <div class="modal-body text-center">
-        <form>
-          <div class="mb-3">
-            <label for="artistaInput" class="form-label">Artista</label>
-            <input type="text" class="form-control" id="artistainput" aria-describedby="emailHelp" minlength="2" maxlength="30" required>
-          </div>
-          <div class="mb-3">
-            <label for="cancionInput" class="form-label">Canción</label>
-            <input type="text" class="form-control" id="cancionInput" minlength="2" maxlength="50" required>
-          </div>
-          <div class="mb-3">
-            <label for="cancionInput" class="form-label">Genero</label>
-            <input type="text" class="form-control" id="cancionInput" minlength="2" maxlength="50" required>
-          </div>
-          <div class="mb-3">
-            <label for="imgInput" class="form-label">link imagen</label>
-            <input type="url" class="form-control" id="imgInput" minlength="1" maxlength="2000" required>
-          </div>
-          <div class="mb-3">
-            <label for="cancionInput" class="form-label">link Canción</label>
-            <input type="url" class="form-control" id="cancionInput" minlength="1" maxlength="2000" required>
-          </div>
-          <button type="submit" class="btn  btn-outline-success btnsubmit w-75"><i class="bi bi-floppy"></i> Guardar</button>
-        </form> 
+
+  <div
+    class="modal fade"
+    id="modalModificarCancion"
+    tabindex="-1"
+    aria-labelledby="modalModificarCancionLabel"
+    aria-hidden="true"
+  >
+    <div class="modal-dialog">
+      <div class="modal-content marcoModal bg-black">
+        <div class="modal-header">
+          <h2
+            class="modal-title fs-5 text-center"
+            id="modalModificarCancionLabel"
+          >
+            Modificar Canción
+          </h2>
+          <button
+            type="button"
+            class="btn-close"
+            data-bs-dismiss="modal"
+            aria-label="Close"
+          ></button>
+        </div>
+        <div class="modal-body text-center">
+          <form>
+            <div class="mb-3">
+              <label for="artistaInput" class="form-label">Artista</label>
+              <input
+                type="text"
+                class="form-control"
+                id="artistainput"
+                aria-describedby="emailHelp"
+                minlength="2"
+                maxlength="30"
+                required
+              />
+            </div>
+            <div class="mb-3">
+              <label for="cancionInput" class="form-label">Canción</label>
+              <input
+                type="text"
+                class="form-control"
+                id="cancionInput"
+                minlength="2"
+                maxlength="50"
+                required
+              />
+            </div>
+            <div class="mb-3">
+              <label for="cancionInput" class="form-label">Genero</label>
+              <input
+                type="text"
+                class="form-control"
+                id="cancionInput"
+                minlength="2"
+                maxlength="50"
+                required
+              />
+            </div>
+            <div class="mb-3">
+              <label for="imgInput" class="form-label">link imagen</label>
+              <input
+                type="url"
+                class="form-control"
+                id="imgInput"
+                minlength="1"
+                maxlength="2000"
+                required
+              />
+            </div>
+            <div class="mb-3">
+              <label for="cancionInput" class="form-label">link Canción</label>
+              <input
+                type="url"
+                class="form-control"
+                id="cancionInput"
+                minlength="1"
+                maxlength="2000"
+                required
+              />
+            </div>
+            <button
+              type="submit"
+              class="btn btn-outline-success btnsubmit w-75"
+            >
+              <i class="bi bi-floppy"></i> Guardar
+            </button>
+          </form>
+        </div>
       </div>
     </div>
   </div>
-</div>
 
-<div class="modal fade" id="modalCardDetalles" tabindex="-1" aria-labelledby="modalCardDetallesLabel" aria-hidden="true">
-  <div class="modal-dialog">
-    <div class="modal-content marcoModal bg-black">
-      <div class="text-end m-4">
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-      </div>
-      <div class="modal-body text-start ">
-        <div class="card border-0">
-          <div class="d-flex justify-content-center border-0">
-            <img
-                  src="https://th.bing.com/th?id=OSK.17763a99b1afb53b2a9fe5e078982ea0&w=116&h=116&c=7&o=6&pid=SANGAM"
-                  class="imgCancionDetalle bg-secondary"
-                  alt="..."
-                />
-          </div>
-          
-          <div class="card-body ">
-            <div class="accordion" id="accordionExample">
-              <div class="accordion-item">
-                <h2 class="accordion-header">
-                  <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-                    detalles
-                  </button>
-                </h2>
-                <div id="collapseOne" class="accordion-collapse collapse show" data-bs-parent="#accordionExample">
-                  <div class="accordion-body">
-                    <ul class="list-group list-group-flush ">
-                      <li class="list-group-item list-group-item-secondary">id: ui2536</li>
-                      <li class="list-group-item list-group-item-secondary"> Artista: Karil</li>
-                      <li class="list-group-item list-group-item-secondary">Canción: Caballo homosexual de las Montañas</li>
-                      <li class="list-group-item list-group-item-secondary">Genero: Rock Alternativo</li>
-                    </ul>
+  <div
+    class="modal fade"
+    id="modalCardDetalles"
+    tabindex="-1"
+    aria-labelledby="modalCardDetallesLabel"
+    aria-hidden="true"
+  >
+    <div class="modal-dialog">
+      <div class="modal-content marcoModal bg-black">
+        <div class="text-end m-4">
+          <button
+            type="button"
+            class="btn-close"
+            data-bs-dismiss="modal"
+            aria-label="Close"
+          ></button>
+        </div>
+        <div class="modal-body text-start">
+          <div class="card border-0">
+            <div class="d-flex justify-content-center border-0">
+              <img
+                src="https://th.bing.com/th?id=OSK.17763a99b1afb53b2a9fe5e078982ea0&w=116&h=116&c=7&o=6&pid=SANGAM"
+                class="imgCancionDetalle bg-secondary"
+                alt="..."
+              />
+            </div>
+
+            <div class="card-body">
+              <div class="accordion" id="accordionExample">
+                <div class="accordion-item">
+                  <h2 class="accordion-header">
+                    <button
+                      class="accordion-button"
+                      type="button"
+                      data-bs-toggle="collapse"
+                      data-bs-target="#collapseOne"
+                      aria-expanded="true"
+                      aria-controls="collapseOne"
+                    >
+                      detalles
+                    </button>
+                  </h2>
+                  <div
+                    id="collapseOne"
+                    class="accordion-collapse collapse show"
+                    data-bs-parent="#accordionExample"
+                  >
+                    <div class="accordion-body">
+                      <ul class="list-group list-group-flush">
+                        <li class="list-group-item list-group-item-secondary">
+                          id: ui2536
+                        </li>
+                        <li class="list-group-item list-group-item-secondary">
+                          Artista: Karil
+                        </li>
+                        <li class="list-group-item list-group-item-secondary">
+                          Canción: Caballo homosexual de las Montañas
+                        </li>
+                        <li class="list-group-item list-group-item-secondary">
+                          Genero: Rock Alternativo
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+                <div class="accordion-item">
+                  <h2 class="accordion-header">
+                    <button
+                      class="accordion-button collapsed"
+                      type="button"
+                      data-bs-toggle="collapse"
+                      data-bs-target="#collapseTwo"
+                      aria-expanded="false"
+                      aria-controls="collapseTwo"
+                    >
+                      Canción
+                    </button>
+                  </h2>
+                  <div
+                    id=" collapseTwo "
+                    class="accordion-collapse collapse"
+                    data-bs-parent="#accordionExample"
+                  >
+                    <div class="accordion-body text-center">
+                      <iframe
+                        src="https://www.youtube.com/embed/hMS8RtYVouc?si=sZWSJsymOTMsahJa"
+                        title="YouTube video player"
+                        frameborder="0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                        class="img-fluid"
+                      ></iframe>
+                    </div>
                   </div>
                 </div>
               </div>
-              <div class="accordion-item">
-                <h2 class="accordion-header">
-                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-                    Canción
-                  </button>
-                </h2>
-                <div id=" collapseTwo " class="accordion-collapse collapse" data-bs-parent="#accordionExample">
-                  <div class="accordion-body text-center">
-                    <iframe " src="https://www.youtube.com/embed/hMS8RtYVouc?si=sZWSJsymOTMsahJa" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" class="img-fluid"></iframe>
-                  </div>
-                </div>
-              </div>
+            </div>
           </div>
         </div>
       </div>
     </div>
   </div>
-</div>
 
+  <div
+    class="modal fade"
+    id="modalEliminar"
+    tabindex="-1"
+    aria-labelledby="modalEliminarLabel"
+    aria-hidden="true"
+  >
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-body">
+          <h5 class="text-warning">¿Estas Seguro de eliminar esta Canción?</h5>
+        </div>
+        <div class="modal-footer">
+          <button
+            type="button"
+            class="btn btn-secondary"
+            data-bs-dismiss="modal"
+          >
+            cancelar
+          </button>
+          <button type="button" class="btn btn-danger">Eliminar</button>
+        </div>
+      </div>
+    </div>
+  </div>
 
-    <script
-      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
-      integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
-      crossorigin="anonymous"
-    ></script>
-  </body>
+  <script
+    src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+    crossorigin="anonymous"
+  ></script>
 </html>
