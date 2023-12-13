@@ -49,4 +49,15 @@ class Cancion{
     set setLinkCancion(linkCancion){
         this.#linkCancion=linkCancion;
     }
+
+    toJSON(){
+        return {
+          id: this.id,
+          banda: this.#banda,
+          cancion: this.#nombreCancion,
+          categoria: this.#categoria,
+          linkImg: this.#img,
+          linkCancion: this.#linkCancion
+        }
+      }
 }
