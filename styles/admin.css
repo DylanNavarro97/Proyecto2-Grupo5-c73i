@@ -9,7 +9,7 @@ p,button,form,table{
     font-style: normal; 
 } 
 .btnBordes{
-    border: 1px #6208f3 solid;
+    border: 1px #bbb7bb solid;
     margin-right: 5%;
 }
 .imgCancion{
@@ -20,8 +20,22 @@ p,button,form,table{
     font-size: larger;
 }
 .fondoAdmin{
-    border: 1px #6208f3 solid;
+    border: 1px #6e08f3e3 solid;
     padding: 2%;
+}
+.marcoModal{
+    border: 1px #6e08f3e3 solid;
+}
+
+.btnsubmit{
+    border: 1px #23BC1C solid;
+}
+
+.imgCancionDetalle{
+    width: 15vh;
+    border: 1px #8a878a solid;
+    border-radius: 20% 0% 20% 0%;
+    margin-top: 3vh;
 }
 
 @media all and (max-width: 767px){
