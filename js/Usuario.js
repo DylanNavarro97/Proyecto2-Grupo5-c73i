@@ -20,6 +20,6 @@ export class Usuario {
     }
 
     set setContraseña (nuevaContraseña){
-        this.#email = nuevaContraseña
+        this.#contraseña = nuevaContraseña
     }
 }
