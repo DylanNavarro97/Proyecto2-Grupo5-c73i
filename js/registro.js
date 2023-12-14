@@ -1,9 +1,8 @@
 import { Usuario } from "./Usuario.js";
 import { verificarEmail, verificarPassword } from "./verificacionesForm.js";
 
-const usuarios = JSON.parse(localStorage.getItem("usuarios")) || []
+const usuarios = JSON.parse(localStorage.getItem("usuarios")) || [];
 const form = document.querySelector(".formularioDeRegistro");
-
 
 const crearUsuario = (e) => {
   e.preventDefault();
@@ -23,9 +22,7 @@ const crearUsuario = (e) => {
 
     guardarEnLocalStorage();
 
-    limpiarFormulario()
-
-    
+    limpiarFormulario();
   }
 };
 
@@ -46,27 +43,26 @@ const limpiarFormulario = () => {
 };
 
 const usuarioAdmin = () => {
-  let existeUserAdmin = false
+  let existeUserAdmin = false;
 
-    for (let usuario of usuarios){
-      if (usuario.tipoDeUsuario === "admin"){
-        existeUserAdmin = true
-      }
+  for (let usuario of usuarios) {
+    if (usuario.tipoDeUsuario === "admin") {
+      existeUserAdmin = true;
+    }
   }
-  
 
-  if (!existeUserAdmin){
+  if (!existeUserAdmin) {
     const usuarioAdmin = new Usuario(
       crypto.randomUUID(),
       "admin@admin.com",
-      'admin',
+      "admin",
       "admin"
-    )
+    );
 
-    usuarios.push(usuarioAdmin)
-    guardarEnLocalStorage()
+    usuarios.push(usuarioAdmin);
+    guardarEnLocalStorage();
   }
-}
+};
 
-usuarioAdmin()
+usuarioAdmin();
 form.addEventListener("submit", crearUsuario);
