@@ -22,6 +22,8 @@ const crearUsuario = (e) => {
 
     guardarEnLocalStorage();
 
+    alertaOkSwal();
+
     limpiarFormulario();
   }
 };
@@ -62,6 +64,16 @@ const usuarioAdmin = () => {
     usuarios.push(usuarioAdmin);
     guardarEnLocalStorage();
   }
+};
+
+const alertaOkSwal = () => {
+  Swal.fire({
+    position: "center",
+    icon: "success",
+    title: "Se ha creado el usuario correctamente.",
+    showConfirmButton: false,
+    timer: 1500,
+  });
 };
 
 usuarioAdmin();
