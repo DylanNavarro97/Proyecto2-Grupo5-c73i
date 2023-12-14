@@ -8,7 +8,7 @@ export class Usuario {
         this.#id = id;
         this.#email = email;
         this.#contraseña = contraseña;
-        this.#tipoDeUsuario
+        this.#tipoDeUsuario = tipoDeUsuario
     }
 
     get getId (){
