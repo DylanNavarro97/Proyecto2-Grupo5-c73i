@@ -423,33 +423,33 @@
               />
             </div>
             <div class="mb-3">
-              <label for="cancionModInput" class="form-label">Genero</label>
+              <label for="generoModInput" class="form-label">Genero</label>
               <input
                 type="text"
                 class="form-control"
-                id="cancionModInput"
+                id="generoModInput"
                 minlength="2"
                 maxlength="50"
                 required
               />
             </div>
             <div class="mb-3">
-              <label for="imgInput" class="form-label">link imagen</label>
+              <label for="imgModInput" class="form-label">link imagen</label>
               <input
                 type="url"
                 class="form-control"
-                id="imgInput"
+                id="imgModInput"
                 minlength="1"
                 maxlength="2000"
                 required
               />
             </div>
             <div class="mb-3">
-              <label for="cancionModInput" class="form-label">link Canción</label>
+              <label for="cancionLinkModInput" class="form-label">link Canción</label>
               <input
                 type="url"
                 class="form-control"
-                id="cancionModInput"
+                id="cancionLinkModInput"
                 minlength="1"
                 maxlength="2000"
                 required
@@ -490,12 +490,12 @@
               <img
                 src="https://th.bing.com/th?id=OSK.17763a99b1afb53b2a9fe5e078982ea0&w=116&h=116&c=7&o=6&pid=SANGAM"
                 class="imgCancionDetalle bg-secondary"
-                alt="..."
+                alt="..." id="imgDetalle"
               />
             </div>
 
             <div class="card-body">
-              <div class="accordion" id="accordionExample">
+              <div class="accordion" id="infoAcordion">
                 <div class="accordion-item">
                   <h2 class="accordion-header">
                     <button
@@ -512,20 +512,20 @@
                   <div
                     id="collapseOne"
                     class="accordion-collapse collapse show"
-                    data-bs-parent="#accordionExample"
+                    data-bs-parent="#infoAcordion"
                   >
                     <div class="accordion-body">
                       <ul class="list-group list-group-flush">
-                        <li class="list-group-item list-group-item-secondary">
+                        <li class="list-group-item list-group-item-secondary" id="detalleId">
                           id: ui2536
                         </li>
-                        <li class="list-group-item list-group-item-secondary">
+                        <li class="list-group-item list-group-item-secondary" id="artistaDetalle">
                           Artista: Karil
                         </li>
-                        <li class="list-group-item list-group-item-secondary">
+                        <li class="list-group-item list-group-item-secondary" id="cancionDetalle">
                           Canción: Caballo homosexual de las Montañas
                         </li>
-                        <li class="list-group-item list-group-item-secondary">
+                        <li class="list-group-item list-group-item-secondary" id="GeneroDetalle">
                           Genero: Rock Alternativo
                         </li>
                       </ul>
@@ -548,7 +548,7 @@
                   <div
                     id="collapseTwo"
                     class="accordion-collapse collapse"
-                    data-bs-parent="#accordionExample"
+                    data-bs-parent="#infoAcordion"
                   >
                     <div class="accordion-body text-center">
                       <iframe
@@ -556,7 +556,7 @@
                         title="YouTube video player"
                         frameborder="0"
                         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                        class="img-fluid"
+                        class="img-fluid" id="frameVideo"
                       ></iframe>
                     </div>
                   </div>

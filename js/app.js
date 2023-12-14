@@ -1,6 +1,5 @@
 import Cancion from "./Cancion.js";
 
-
 const listaCancion = JSON.parse(localStorage.getItem("cancionKey")) || [];
 const banda = document.querySelector("#artistainput");
 const nombre = document.querySelector("#cancionInput");
@@ -8,39 +7,45 @@ const categoria = document.querySelector("#generoInput");
 const img = document.querySelector("#imgInput");
 const linkCancion = document.querySelector("#cancionLinkInput");
 const formCrear = document.querySelector("#formCrear");
-
+const videoDetalle = document.querySelector("#frameVideo");
+const idDetalle = document.querySelector("#detalleId");
+const artistaDetalle = document.querySelector("#artistaDetalle");
+const cancionDetalle = document.querySelector("#cancionDetalle");
+const imgDetalle = document.querySelector("#imgDetalle");
+const GeneroDetalle = document.querySelector("#GeneroDetalle");
 
 const cancionNueva = (e) => {
-    e.preventDefault();
-   
-      const CancionNueva = new Cancion(
-          crypto.randomUUID(),
-          banda.value,
-          nombre.value,
-        categoria.value,
-        img.value,
-        linkCancion.value,
-      );
-      //guardar el objeto en un array agenda
-      listaCancion.push(CancionNueva);
-      //guardar la agenda en localstorage
-      guardarEnLocalstorage();
-      console.log(listaCancion);
-      crearCard(CancionNueva);
-      limpiarFormulario(formCrear);
-  };
+  e.preventDefault();
 
-  const guardarEnLocalstorage = () => {
-    localStorage.setItem("cancionKey", JSON.stringify(listaCancion));
-  };
+  const CancionNueva = new Cancion(
+    crypto.randomUUID(),
+    banda.value,
+    nombre.value,
+    categoria.value,
+    img.value,
+    linkCancion.value
+  );
+  console.log(CancionNueva);
+  //guardar el objeto en un array agenda
+  listaCancion.push(CancionNueva);
+  //guardar la agenda en localstorage
+  guardarEnLocalstorage();
 
-  const limpiarFormulario = (form) => {
-    form.reset();
-  };
-  
-  const crearCard = (cancion) => { 
-    const contenedorCanciones = document.querySelector("#contenedorCanciones");
-    contenedorCanciones.innerHTML += `<div class="card w-100 my-3 border-0 border-bottom">
+  crearCard(CancionNueva);
+  limpiarFormulario(formCrear);
+};
+
+const guardarEnLocalstorage = () => {
+  localStorage.setItem("cancionKey", JSON.stringify(listaCancion));
+};
+
+const limpiarFormulario = (form) => {
+  form.reset();
+};
+
+const crearCard = (cancion) => {
+  const contenedorCanciones = document.querySelector("#contenedorCanciones");
+  contenedorCanciones.innerHTML += `<div class="card w-100 my-3 border-0 border-bottom">
     <div
       class="card-body d-md-flex justify-content-md-between centrarCardSm"
     >
@@ -55,7 +60,7 @@ const cancionNueva = (e) => {
         class="d-flex flex-column flex-wrap justify-content-center align-content-start container ps-5"
       >
         <h5 class="card-title mt-sm-2">
-        ${cancion.getNombreCancion}
+        ${cancion.getNombreCancion} 
         </h5>
         <p class="card-text">${cancion.getBanda}</p>
       </div>
@@ -66,6 +71,7 @@ const cancionNueva = (e) => {
           class="btn btn-outline-info"
           data-bs-toggle="modal"
           data-bs-target="#modalCardDetalles"
+          onclick="detalleCancion('${cancion.getId}')"
         >
           <i class="bi bi-three-dots iconosBtn"></i>
         </button>
@@ -86,7 +92,25 @@ const cancionNueva = (e) => {
       </div>
     </div>
   </div>`;
-  };
+};
 
-  formCrear.addEventListener("submit",cancionNueva)
-  
+window.detalleCancion = (idContacto) => {
+  const posicionCancion = listaCancion.findIndex(
+    (cancion) => cancion.getId === idContacto
+  );
+  let banda = listaCancion[posicionCancion].getBanda;
+  let cancion = listaCancion[posicionCancion].getNombreCancion;
+  let genero = listaCancion[posicionCancion].getCategoria;
+  let img = listaCancion[posicionCancion].getImg;
+  let link = listaCancion[posicionCancion].getLinkCancion;
+
+  idDetalle.innerHTML = `id: ${listaCancion[posicionCancion].getId}`;
+  artistaDetalle.innerHTML = `Artista: ${banda}`;
+  cancionDetalle.innerHTML = `Cancion: ${cancion}`;
+  GeneroDetalle.innerHTML = `Genero: ${genero}`
+  imgDetalle.setAttribute('src',img.toString());
+  videoDetalle.setAttribute('src',link.toString());
+};
+
+console.log(listaCancion);
+formCrear.addEventListener("submit", cancionNueva);
