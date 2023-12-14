@@ -39,7 +39,6 @@ const cancionNueva = (e) => {
   };
   
   const crearCard = (cancion) => { 
-
     const contenedorCanciones = document.querySelector("#contenedorCanciones");
     contenedorCanciones.innerHTML += `<div class="card w-100 my-3 border-0 border-bottom">
     <div
