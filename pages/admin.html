@@ -96,7 +96,7 @@
       <article>
         <h2 class="text-center text-ligth my-3">Panel Administrador</h2>
       </article>
-      <article class="container d-flex flex-column fondoAdmin rounded bg-black">
+      <article class="container d-flex flex-column fondoAdmin rounded bg-black" id="contenedorCanciones">
         <section
           class="d-flex justify-content-md-end align-content-md-end justify-content-center align-content-center"
         >
@@ -271,6 +271,14 @@
         </div>
       </div>
     </footer>
+
+    
+    <script
+    src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+    crossorigin="anonymous"
+  ></script>
+  <script src="../js/app.js" type="module"></script>
   </body>
   <!-- zona modal -->
   <div
@@ -297,9 +305,9 @@
           ></button>
         </div>
         <div class="modal-body text-center">
-          <form>
+          <form id="formCrear">
             <div class="mb-3">
-              <label for="artistaInput" class="form-label">Artista</label>
+              <label for="artistaInput" class="form-label" >Artista</label>
               <input
                 type="text"
                 class="form-control"
@@ -322,11 +330,11 @@
               />
             </div>
             <div class="mb-3">
-              <label for="cancionInput" class="form-label">Genero</label>
+              <label for="generoInput" class="form-label">Genero</label>
               <input
                 type="text"
                 class="form-control"
-                id="cancionInput"
+                id="generoInput"
                 minlength="2"
                 maxlength="50"
                 required
@@ -344,11 +352,11 @@
               />
             </div>
             <div class="mb-3">
-              <label for="cancionInput" class="form-label">link Canción</label>
+              <label for="cancionLinkInput" class="form-label">link Canción</label>
               <input
                 type="url"
                 class="form-control"
-                id="cancionInput"
+                id="cancionLinkInput"
                 minlength="1"
                 maxlength="2000"
                 required
@@ -392,11 +400,11 @@
         <div class="modal-body text-center">
           <form>
             <div class="mb-3">
-              <label for="artistaInput" class="form-label">Artista</label>
+              <label for="artistaModInput" class="form-label">Artista</label>
               <input
                 type="text"
                 class="form-control"
-                id="artistainput"
+                id="artistaModinput"
                 aria-describedby="emailHelp"
                 minlength="2"
                 maxlength="30"
@@ -404,22 +412,22 @@
               />
             </div>
             <div class="mb-3">
-              <label for="cancionInput" class="form-label">Canción</label>
+              <label for="cancionModInput" class="form-label">Canción</label>
               <input
                 type="text"
                 class="form-control"
-                id="cancionInput"
+                id="cancionModInput"
                 minlength="2"
                 maxlength="50"
                 required
               />
             </div>
             <div class="mb-3">
-              <label for="cancionInput" class="form-label">Genero</label>
+              <label for="cancionModInput" class="form-label">Genero</label>
               <input
                 type="text"
                 class="form-control"
-                id="cancionInput"
+                id="cancionModInput"
                 minlength="2"
                 maxlength="50"
                 required
@@ -437,11 +445,11 @@
               />
             </div>
             <div class="mb-3">
-              <label for="cancionInput" class="form-label">link Canción</label>
+              <label for="cancionModInput" class="form-label">link Canción</label>
               <input
                 type="url"
                 class="form-control"
-                id="cancionInput"
+                id="cancionModInput"
                 minlength="1"
                 maxlength="2000"
                 required
@@ -538,7 +546,7 @@
                     </button>
                   </h2>
                   <div
-                    id=" collapseTwo "
+                    id="collapseTwo"
                     class="accordion-collapse collapse"
                     data-bs-parent="#accordionExample"
                   >
@@ -587,9 +595,5 @@
     </div>
   </div>
 
-  <script
-    src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
-    integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
-    crossorigin="anonymous"
-  ></script>
+  
 </html>
