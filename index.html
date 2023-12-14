@@ -1,22 +1,102 @@
 <!DOCTYPE html>
 <html lang="es">
   <head>
-    <meta charset="utf-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE-edge" />
-    <meta name="viewport" content="width-device-width, initial-scale-1.0" />
-    <!-- Vinculación con hoja de CSS -->
-		<link rel="stylesheet" href="Style/style.css">
-    <!-- Tipo de letra -->
-    <link rel="preconnect" href="https://fonts.gstatic.com">
-		<link href="https://fonts.googleapis.com/css2?family=Hammersmith+One&display=swap" rel="stylesheet">
-        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
- 
-    </head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
+      crossorigin="anonymous"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.2/font/bootstrap-icons.min.css"
+    />
+    <link rel="stylesheet" href="./styles/index.css"/>
+    <link rel="stylesheet" href="./styles/style.css"/>
+    <title>Ares</title>
+  </head>
 
-  <body id="principal">
-    <div class="container mt-5">
+  <body data-bs-theme="dark">
+
+    <header>
+      
+      <nav class="navbar navbar-expand-lg bg-body-tertiary">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="#">
+            <img src="../img/Ares.png" alt="Ares logo" />
+          </a>
+          <button
+            class="navbar-toggler"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+          >
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div
+            class="collapse navbar-collapse container text-center"
+            id="navbarSupportedContent"
+          >
+            <div class="col-12 col-lg">
+              <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <li class="nav-item">
+                  <a class="nav-link" aria-current="page" href="#"
+                    >Inicio</a
+                  >
+                </li>
+
+                <li class="nav-item">
+                  <a class="nav-link" href="./pages/nosotros.html">Sobre nosotros</a>
+                </li>
+              </ul>
+            </div>
+
+            <div class="col-12 col-lg mb-3 m-lg-0">
+              <form class="d-flex" role="search">
+                <input
+                  class="form-control me-2"
+                  type="search"
+                  placeholder="Search"
+                  aria-label="Search"
+                />
+                <button class="btn btn-outline-success" type="submit">
+                  Search
+                </button>
+              </form>
+            </div>
+
+            <div
+              class="col-12 col-lg d-flex justify-content-center justify-content-lg-end"
+            >
+              <ul class="navbar-nav">
+                <li class="nav-item">
+                  <button
+                    class="btn btn-primary"
+                    type="button"
+                    aria-expanded="false"
+                    data-bs-toggle="modal" 
+                    data-bs-target="#modalDeIngreso"
+                  >
+                    Ingreso <i class="bi bi-person-circle"></i>
+                  </button>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </nav>
+       
+    </header>
+
+    <main id="principal">
+      <div class="container mt-5">
         <h2>CANCIONES</h2>
-        <p class="musicaParrafo">Acá vas a encontrar todo lo que querés escuchar</p>
+        <p class="musicaParrafo">Acá vas a encontrar todo lo que querés escuchar.</p>
         <nav class="navbar bg-body-tertiary mb-3">
             <div class="container-fluid">
               <form class="d-flex" role="search">
@@ -36,6 +116,7 @@
                 <li id="cancion1" class="cancionFondo">
                     <div class="d-flex justify-content-end flex-column p-2 w-100 h-100 musicaEfecto">
                         <a href="#" class="btnPlay"><i class="fa-solid fa-play" style="color: #ffffff;"></i></a>
+                        <a href="#" class="btnAgregar"><i class="fa-solid fa-circle-plus" style="color: #80c3d1;"></i></a>
                         <h6 class="textoCancion">CANCIÓN</h6>
                         <h6 class="textoCancion">Artista</h6>
                     </div>
@@ -44,6 +125,7 @@
                 <li id="cancion2" class="cancionFondo">
                     <div class="d-flex justify-content-end flex-column p-2 w-100 h-100 musicaEfecto">
                         <a href="#" class="btnPlay"><i class="fa-solid fa-play" style="color: #ffffff;"></i></a>
+                        <a href="#" class="btnAgregar"><i class="fa-solid fa-circle-plus" style="color: #80c3d1;"></i></a>
                         <h6 class="textoCancion">CANCIÓN</h6>
                         <h6 class="textoCancion">Artista</h6>
                     </div>
@@ -52,6 +134,7 @@
                 <li id="cancion3" class="cancionFondo">
                     <div class="d-flex justify-content-end flex-column p-2 w-100 h-100 musicaEfecto">
                         <a href="#" class="btnPlay"><i class="fa-solid fa-play" style="color: #ffffff;"></i></a>
+                        <a href="#" class="btnAgregar"><i class="fa-solid fa-circle-plus" style="color: #80c3d1;"></i></a>
                         <h6 class="textoCancion">CANCIÓN</h6>
                         <h6 class="textoCancion">Artista</h6>
                     </div>
@@ -60,6 +143,7 @@
                 <li id="cancion4" class="cancionFondo">
                     <div class="d-flex justify-content-end flex-column p-2 w-100 h-100 musicaEfecto">
                         <a href="#" class="btnPlay"><i class="fa-solid fa-play" style="color: #ffffff;"></i></a>
+                        <a href="#" class="btnAgregar"><i class="fa-solid fa-circle-plus" style="color: #80c3d1;"></i></a>
                         <h6 class="textoCancion">CANCIÓN</h6>
                         <h6 class="textoCancion">Artista</h6>
                     </div>
@@ -68,6 +152,7 @@
                 <li id="cancion4" class="cancionFondo">
                     <div class="d-flex justify-content-end flex-column p-2 w-100 h-100 musicaEfecto">
                         <a href="#" class="btnPlay"><i class="fa-solid fa-play" style="color: #ffffff;"></i></a>
+                        <a href="#" class="btnAgregar"><i class="fa-solid fa-circle-plus" style="color: #80c3d1;"></i></a>
                         <h6 class="textoCancion">CANCIÓN</h6>
                         <h6 class="textoCancion">Artista</h6>
                     </div>
@@ -75,10 +160,126 @@
                 </li>
             </ul>
         </section>
+      </div>
+    </main>
+
+    <footer class="bd-footer py-4 py-md-3 mt-5 bg-body-tertiary">
+      <div class="container py-4 py-md-2 px-4 px-md-3 text-body-secondary">
+        <div class="row">
+          <div class="col-md-4  mb-3 mb-md-0 text-center">
+            <a class="navbar-brand" href="#">
+              <img src="./img/Ares.png" alt="Ares logo" class="imgFooter" />
+            </a>
+            <ul class="list-unstyled small">
+              <li class="mb-2">&copy; todos los derechos reservados</li>
+            </ul>
+          </div>
+          <div class="col-6 col-md-4 ms-lg-0  offset-lg-1 mb-3 mb-md-0 text-center">
+            <h5>Enlaces</h5>
+            <ul class="list-unstyled">
+              <li>
+                <a
+                  class="link-underline link-underline-opacity-0 link-body-emphasis link-underline-opacity-75-hover"
+                  href="#"
+                  >Nosotros</a
+                >
+              </li>
+              <li>
+                <a
+                  class="link-underline link-underline-opacity-0 link-body-emphasis link-underline-opacity-75-hover"
+                  href="#"
+                  >Registro</a
+                >
+              </li>
+            </ul>
+          </div>
+          <div class="col-6 col-md-4  mb-3 mb-md-0 text-center">
+            <h5>Redes</h5>
+            <ul class="list-unstyled">
+              <li class="mb-2 ">
+                <a href="./pages/404.html"><i class="bi bi-whatsapp link-light fs-3 "></i></a>
+                <a href="./pages/404.html"><i class="bi bi-facebook link-light fs-3 mx-2"></i></a>
+                <a href="./pages/404.html"><i class="bi bi-twitter link-light fs-3"></i></a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+          <!-- Modal Ingreso -->
+    <div class="modal fade" id="modalDeIngreso" tabindex="-1" aria-labelledby="modalDeIngresoLabel" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+
+          <div class="modal-body">
+            <div class="d-flex justify-content-end p-1">
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+
+            <h4 class="text-center">Iniciar sesión</h4>
+    
+            <form class="container mb-5">
+              <div class="my-4">
+                <input type="email" class="form-control mb-2" placeholder="📧 Ingresar correo" required minlength="5" maxlength="50">
+                <input type="password" class="form-control" placeholder="🔒 Ingresar clave" required minlength="5" maxlength="50">
+              </div>
+    
+              <div>
+                <div class="d-flex justify-content-between">
+                  <a href="#" class="link link-primary link-underline-opacity-0" data-bs-toggle="modal" 
+                      data-bs-target="#modalDeRegistro">Registrarme</a>
+                  <a href="../pages/404.html" class="link link-primary link-underline-opacity-0">Olvidé mi clave</a>
+                </div>
+                <button type="submit" class="btn btn-primary w-100">Ingresar</button>
+              </div>
+            </form>
+    
+            <h4 class="text-center">- Iniciar sesión con -</h4>
+            <div class="d-flex justify-content-center">
+              <div class="w-75">
+                <a class="btn btn-primary mb-3 w-100 continuarIngreso" href="../pages/404.html"><i class="bi bi-facebook me-1"></i>Continuar con Facebook</a>
+                <a class="btn btn-primary w-100 continuarIngreso" href="../pages/404.html"><i class="bi bi-instagram me-1"></i>Continuar con Instagram</a>
+              </div>
+            </div>
+          </div>
+              
+        </div>
+      </div>
     </div>
     
-    <script src="https://kit.fontawesome.com/63b622224f.js" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+        <!-- Modal Ingreso -->
+    <div class="modal fade" id="modalDeRegistro" tabindex="-1" aria-labelledby="modalDeRegistroLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+          <div class="modal-content">
+            <div class="modal-body">
 
+              <div class="d-flex justify-content-end p-1">
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+              </div>
+
+              <h4 class="text-center">Registro</h4>
+      
+              <form class="container mb-5">
+                <div class="my-4">
+                  <input type="email" class="form-control mb-2" placeholder="📧 Ingresar correo" required minlength="5" maxlength="50">
+                  <input type="password" class="form-control" placeholder="🔒 Ingresar clave" required minlength="5" maxlength="50">
+                </div>
+                  <button type="submit" class="btn btn-primary w-100">Registrarme</button>
+              </form>
+      
+              </div>
+            </div>     
+          </div>
+        </div>
+    </div>
+
+    <script src="https://kit.fontawesome.com/63b622224f.js" crossorigin="anonymous"></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+      crossorigin="anonymous"
+    ></script>
+    
   </body>
 </html>

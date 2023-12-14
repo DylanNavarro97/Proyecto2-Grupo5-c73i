@@ -1,0 +1,25 @@
+body{
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+main{
+    flex-grow: 1;
+}
+
+header div a img{
+    margin-left: 48px;
+    width: 50px;
+}
+
+.imgFooter{
+    height: 10vh;
+}
+
+@media all and (max-width: 767px){
+    header div a img{
+        margin-left: 10px;
+        /* width: 50px; */
+    }
+}
