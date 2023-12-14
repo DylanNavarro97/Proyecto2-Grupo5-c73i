@@ -3,9 +3,9 @@ import { verificarEmail, verificarPassword } from "./verificacionesForm.js";
 
 const usuarios = JSON.parse(localStorage.getItem("usuarios")) || [];
 
-const form = document.querySelector('.formularioDeRegistro')
+const form = document.querySelector(".formularioDeRegistro");
 
-form.addEventListener("submit", (e) => {
+const crearUsuario = () => {
   e.preventDefault();
 
   const inputEmail = document.querySelector(".registroEmailInput").value;
@@ -19,13 +19,13 @@ form.addEventListener("submit", (e) => {
       "user"
     );
 
-    usuarios.push(usuario)
+    usuarios.push(usuario);
 
-    guardarEnLocalStorage('usuarios', usuarios)
+    guardarEnLocalStorage("usuarios", usuarios);
+
+    limpiarFormulario()
   }
-
-  // limpiar formulario
-});
+};
 
 const verificarFormRegistro = (email, password) => {
   if (verificarEmail(email, 5, 50) && verificarPassword(password, 5, 50)) {
@@ -35,6 +35,16 @@ const verificarFormRegistro = (email, password) => {
   }
 };
 
-const guardarEnLocalStorage = (Key, itemAGuardar) => {
-  localStorage.setItem(`${Key}`, JSON.stringify(itemAGuardar));
+const guardarEnLocalStorage = () => {
+  localStorage.setItem(`usuarios`, JSON.stringify(usuario));
+};
+
+const limpiarFormulario = () => {
+  form.reset();
+};
+
+const usuarioAdmin = () => {
+  
 }
+
+form.addEventListener("submit", crearUsuario);
