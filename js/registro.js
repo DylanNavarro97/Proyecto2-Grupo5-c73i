@@ -1,8 +1,8 @@
 import { Usuario } from "./Usuario.js";
 import { verificarEmail, verificarPassword } from "./verificacionesForm.js";
 
-const usuarios = JSON.parse(localStorage.getItem("usuarios")) || [];
-
+const usuarios = JSON.parse(localStorage.getItem("Usuarios")) || []
+console.log(usuarios)
 const form = document.querySelector(".formularioDeRegistro");
 
 const crearUsuario = () => {
@@ -21,7 +21,7 @@ const crearUsuario = () => {
 
     usuarios.push(usuario);
 
-    guardarEnLocalStorage("usuarios", usuarios);
+    guardarEnLocalStorage();
 
     limpiarFormulario()
   }
@@ -35,8 +35,8 @@ const verificarFormRegistro = (email, password) => {
   }
 };
 
-const guardarEnLocalStorage = () => {
-  localStorage.setItem(`usuarios`, JSON.stringify(usuario));
+const guardarEnLocalStorage = (objetoAGuardar) => {
+  localStorage.setItem(`usuarios`, JSON.stringify(usuarios));
 };
 
 const limpiarFormulario = () => {
@@ -44,7 +44,29 @@ const limpiarFormulario = () => {
 };
 
 const usuarioAdmin = () => {
+  let existeUserAdmin = false
+
+  if (usuarios.length > 0){
+    for (let usuario of usuarios){
+      if (usuario.tipoDeUsuario === "admin"){
+        existeUserAdmin = true
+      }
+    }
+  }
   
+
+  if (!existeUserAdmin){
+    const usuarioAdmin = new Usuario(
+      crypto.randomUUID(),
+      "admin@admin.com",
+      'admin',
+      "admin"
+    )
+
+    usuarios.push(usuarioAdmin)
+    guardarEnLocalStorage()
+  }
 }
 
+usuarioAdmin()
 form.addEventListener("submit", crearUsuario);
