@@ -42,5 +42,14 @@ export class Usuario {
     set setTipoDeUsuario (nuevoTipoDeUsuario){
         this.#tipoDeUsuario = nuevoTipoDeUsuario;
     }
+
+    toJSON(){
+        return{
+            id: this.#id,
+            email: this.#email,
+            contraseña: this.#contraseña,
+            tipoDeUsuario: this.#tipoDeUsuario
+        }
+    }
     
 }
