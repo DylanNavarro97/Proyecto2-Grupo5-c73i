@@ -1,11 +1,11 @@
 import { Usuario } from "./Usuario.js";
 import { verificarEmail, verificarPassword } from "./verificacionesForm.js";
 
-const usuarios = JSON.parse(localStorage.getItem("Usuarios")) || []
-console.log(usuarios)
+const usuarios = JSON.parse(localStorage.getItem("usuarios")) || []
 const form = document.querySelector(".formularioDeRegistro");
 
-const crearUsuario = () => {
+
+const crearUsuario = (e) => {
   e.preventDefault();
 
   const inputEmail = document.querySelector(".registroEmailInput").value;
@@ -24,6 +24,8 @@ const crearUsuario = () => {
     guardarEnLocalStorage();
 
     limpiarFormulario()
+
+    
   }
 };
 
@@ -35,7 +37,7 @@ const verificarFormRegistro = (email, password) => {
   }
 };
 
-const guardarEnLocalStorage = (objetoAGuardar) => {
+const guardarEnLocalStorage = () => {
   localStorage.setItem(`usuarios`, JSON.stringify(usuarios));
 };
 
@@ -46,12 +48,10 @@ const limpiarFormulario = () => {
 const usuarioAdmin = () => {
   let existeUserAdmin = false
 
-  if (usuarios.length > 0){
     for (let usuario of usuarios){
       if (usuario.tipoDeUsuario === "admin"){
         existeUserAdmin = true
       }
-    }
   }
   
 
