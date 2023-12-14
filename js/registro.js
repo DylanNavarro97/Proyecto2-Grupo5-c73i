@@ -1,10 +1,11 @@
 import { Usuario } from "./Usuario.js";
 import { verificarEmail, verificarPassword } from "./verificacionesForm.js";
 
-const botonDeRegistro = document.querySelector(".botonRegistro");
+const form = document.querySelector('.formularioDeRegistro')
 
-botonDeRegistro.addEventListener("click", (e) => {
+form.addEventListener("submit", (e) => {
   e.preventDefault();
+  console.log(form)
 
   const inputEmail = document.querySelector(".registroEmailInput").value;
   const inputPassword = document.querySelector(".registroPasswordInput").value;
