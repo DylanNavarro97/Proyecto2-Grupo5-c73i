@@ -1,21 +1,16 @@
 import { Usuario } from "./Usuario.js";
 import { verificarEmail, verificarPassword } from "./verificacionesForm.js";
 
+const usuarios = JSON.parse(localStorage.getItem("usuarios")) || [];
+
 const form = document.querySelector('.formularioDeRegistro')
 
 form.addEventListener("submit", (e) => {
   e.preventDefault();
-  console.log(form)
 
   const inputEmail = document.querySelector(".registroEmailInput").value;
   const inputPassword = document.querySelector(".registroPasswordInput").value;
 
-  // Verificar el input email y el input Password
-  verificarFormRegistro(inputEmail, inputPassword);
-
-  // Obtener los valores ingresados de cada input en caso de que hayan pasado las verificaciones
-
-  // instanciar un nuevo objeto de tipo Usuario.
   if (verificarFormRegistro(inputEmail, inputPassword)) {
     const usuario = new Usuario(
       crypto.randomUUID(),
@@ -24,11 +19,10 @@ form.addEventListener("submit", (e) => {
       "user"
     );
 
-    console.log(usuario.toJSON());
-  }
-  // Obtener la lista de objetos Usuario que haya en el local Storage
+    usuarios.push(usuario)
 
-  // guardar ese nuevo objeto en la lista del LocalStorage
+    guardarEnLocalStorage('usuarios', usuarios)
+  }
 
   // limpiar formulario
 });
@@ -40,3 +34,7 @@ const verificarFormRegistro = (email, password) => {
     return false;
   }
 };
+
+const guardarEnLocalStorage = (Key, itemAGuardar) => {
+  localStorage.setItem(`${Key}`, JSON.stringify(itemAGuardar));
+}
