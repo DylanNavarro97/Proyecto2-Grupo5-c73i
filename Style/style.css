@@ -1,16 +1,36 @@
-ul{
-    
+#principal{
+    background-color: #7d2181;
+    color: #FFF;
 }
-
 .cancionFondo{
     width: 25%;
     height: 250px;
     list-style: none;
-   background-position: center;
+    background-position: center;
     background-size: cover;
     background-repeat: no-repeat;
 }
 
+@media screen and (min-width: 768px) and (max-width: 1024px) {
+    .cancionFondo{
+        width: 33%;
+    }
+}
+
+
+.decoracionBusqueda{
+    border-radius: 5%;
+}
+.busquedaIcono{
+    font-size: 20px;
+    border: 1px solid grey;
+    border-radius: 10%;
+    color: #616161;
+}
+
+.musicaParrafo{
+    margin-bottom: 70px;
+}
 #cancion1{
     background-image: url(https://cloudfront-eu-central-1.images.arcpublishing.com/prisaradiolos40/DKYR3LUXAJORTE5JPTICLZZJLY.jpg);
     
@@ -46,4 +66,41 @@ ul{
     position: absolute;
     top: 35%;
     left: 45%;
+}
+
+/* MOBILE */
+.tituloCanciones{
+    font-size: 64px;
+    margin-bottom: 30px;
+}
+.musicaParrafo{
+    font-size: 32px;
+}
+.textoCancion{
+    font-size: 32px;
+}
+.fa-play{
+    font-size: 100px;
+}
+.cancionFondo{
+    width: 100%;
+    height: 400px;
+    list-style: none;
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+.navbar{
+   height: 100px;
+}
+form .btn{
+    font-size: 32px;
+}
+
+.form-control{
+    height: 80px;
+}
+
+.decoracionBusqueda{
+    width: 550px;
 }
