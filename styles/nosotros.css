@@ -1,0 +1,12 @@
+#fraseNosotros{
+    color: #7d2181;
+}
+
+.tarjetaNosotros{
+    background: linear-gradient(360deg, #020024 0%, #1f0020 35%, #5d0a61 100%);
+}
+
+.imgNosotros{
+    border-radius: 50%;
+    padding: 10px;
+}
