@@ -1,30 +1,36 @@
-import { verificarEmail } from "./verificacionesForm.js"
+import { verificarEmail, verificarPassword } from "./verificacionesForm.js";
 
-const inputEmail = document.querySelector('.registroEmailInput')
-const inputPassword = document.querySelector('.registroPasswordInput')
-const botonDeRegistro = document.querySelector('.botonRegistro')
+const botonDeRegistro = document.querySelector(".botonRegistro");
 
-botonDeRegistro.addEventListener('click', (e) => {
-    e.preventDefault()
+botonDeRegistro.addEventListener("click", (e) => {
+  e.preventDefault();
 
-    console.log(inputEmail)
-    console.log(inputPassword)
+  const inputEmail = document.querySelector(".registroEmailInput").value;
+  const inputPassword = document.querySelector(".registroPasswordInput").value;
 
-    verificarEmail()
+  // Verificar el input email y el input Password
+  verificarFormRegistro(inputEmail, inputPassword)
 
-    // Verificar el input email
+  // Obtener los valores ingresados de cada input en caso de que hayan pasado las verificaciones
 
-    // Verificar el input password
+  // instanciar un nuevo objeto de tipo Usuario.
+    if (verificarFormRegistro(inputEmail, inputPassword)){
+        
+    }
+  // Obtener la lista de objetos Usuario que haya en el local Storage
 
-    // Obtener los valores ingresados de cada input en caso de que hayan pasado las verificaciones
+  // guardar ese nuevo objeto en la lista del LocalStorage
 
-    // instanciar un nuevo objeto de tipo Usuario.
+  // limpiar formulario
+});
 
-    // Obtener la lista de objetos Usuario que haya en el local Storage
-
-    // guardar ese nuevo objeto en la lista del LocalStorage
-
-    // limpiar formulario
-
-
-})
+const verificarFormRegistro = (email, password) => {
+    if (
+      verificarEmail(email, 5, 50) &&
+      verificarPassword(password, 5, 50)
+    ) {
+      console.log("Paso las dos verificaciones");
+    } else {
+        console.log('Segui intentando')
+    }
+  };
