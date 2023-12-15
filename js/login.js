@@ -20,8 +20,7 @@ const realizarIngreso = (e) => {
 };
 
 const cerrarSesion = () => {
-  esconderBotonCerrarSesion();
-  borrarUserDeLocalStorage()
+  alertaCerrarSesionSwal()
 };
 
 const compararEmailConUsuarios = (email, usuarios) => {
@@ -31,17 +30,17 @@ const compararEmailConUsuarios = (email, usuarios) => {
     for (let usuario of usuarios) {
       console.log(usuario.email);
       if (usuario.email === email) {
-        usuarioOk = usuario
+        usuarioOk = usuario;
       }
     }
-    if (usuarioOk){
+    if (usuarioOk) {
       guardarUserEnLocalStorage(usuarioOk);
       esconderBotonIngreso();
-      limpiarFormulario(form)
-      alertaOkSwal()
-      cerrarModalYSweetAlert()
+      limpiarFormulario(form);
+      alertaOkSwal();
+      cerrarModalYSweetAlert();
     } else {
-      console.log('No existe el usuario')
+      console.log("No existe el usuario");
     }
   } else {
     alert("No existe el usuario");
@@ -63,11 +62,15 @@ const guardarUserEnLocalStorage = (usuario) => {
 };
 
 const borrarUserDeLocalStorage = () => {
-  localStorage.removeItem("usuarioLogeado")
-}
+  localStorage.removeItem("usuarioLogeado");
+};
 
 const limpiarFormulario = (form) => {
-  form.reset()
+  form.reset();
+};
+
+const recargarPagina = () => {
+  location.reload()
 }
 
 const alertaOkSwal = () => {
@@ -80,29 +83,46 @@ const alertaOkSwal = () => {
   });
 };
 
+const alertaCerrarSesionSwal = () => {
+  Swal.fire({
+    title: "¿Cerrar sesión?",
+    showCancelButton: true,
+    confirmButtonText: "Cerrar sesión",
+    cancelButtonText: "Cancelar",
+  }).then((result) => {
+    if (result.isConfirmed) {
+      esconderBotonCerrarSesion();
+      borrarUserDeLocalStorage();
+      recargarPagina()
+    } else if (result.isDenied) {
+      Swal.fire("Changes are not saved", "", "info");
+    }
+  });
+};
+
 const cerrarModalYSweetAlert = () => {
-  const botonConfirmSw = document.querySelector('.swal2-confirm')
-  const swalBackground = document.querySelector('.swal2-container')
+  const botonConfirmSw = document.querySelector(".swal2-confirm");
+  const swalBackground = document.querySelector(".swal2-container");
 
-  const agregarAtributosSwal = (elementoSwal) => {
-    elementoSwal.setAttribute('aria-expanded', 'false');
-    elementoSwal.setAttribute('data-bs-toggle', 'modal');
-    elementoSwal.setAttribute('data-bs-target', '#modalDeIngreso');
-  }
+  agregarAtributosSwal(botonConfirmSw);
+  eliminarAtributosSwal(botonConfirmSw);
+  agregarAtributosSwal(swalBackground);
+  eliminarAtributosSwal(swalBackground);
+};
 
-  const eliminarAtributosSwal = (elementoSwal) => {
-    elementoSwal.addEventListener('click', () => {
-      elementoSwal.removeAttribute('aria-expanded', 'false');
-      elementoSwal.removeAttribute('data-bs-toggle', 'modal');
-      elementoSwal.removeAttribute('data-bs-target', '#modalDeIngreso');
-      })
-  }
+const agregarAtributosSwal = (elementoSwal) => {
+  elementoSwal.setAttribute("aria-expanded", "false");
+  elementoSwal.setAttribute("data-bs-toggle", "modal");
+  elementoSwal.setAttribute("data-bs-target", "#modalDeIngreso");
+};
 
-  agregarAtributosSwal(botonConfirmSw)
-  eliminarAtributosSwal(botonConfirmSw)
-  agregarAtributosSwal(swalBackground)
-  eliminarAtributosSwal(swalBackground)
-}
+const eliminarAtributosSwal = (elementoSwal) => {
+  elementoSwal.addEventListener("click", () => {
+    elementoSwal.removeAttribute("aria-expanded", "false");
+    elementoSwal.removeAttribute("data-bs-toggle", "modal");
+    elementoSwal.removeAttribute("data-bs-target", "#modalDeIngreso");
+  });
+};
 
 form.addEventListener("submit", realizarIngreso);
 botonLogOut.addEventListener("click", cerrarSesion);
