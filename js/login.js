@@ -82,15 +82,26 @@ const alertaOkSwal = () => {
 
 const cerrarModalYSweetAlert = () => {
   const botonConfirmSw = document.querySelector('.swal2-confirm')
-  botonConfirmSw.setAttribute('aria-expanded', 'false');
-  botonConfirmSw.setAttribute('data-bs-toggle', 'modal');
-  botonConfirmSw.setAttribute('data-bs-target', '#modalDeIngreso');
+  const swalBackground = document.querySelector('.swal2-container')
 
-  botonConfirmSw.addEventListener('click', () => {
-  botonConfirmSw.removeAttribute('aria-expanded', 'false');
-  botonConfirmSw.removeAttribute('data-bs-toggle', 'modal');
-  botonConfirmSw.removeAttribute('data-bs-target', '#modalDeIngreso');
-  })
+  const agregarAtributosSwal = (elementoSwal) => {
+    elementoSwal.setAttribute('aria-expanded', 'false');
+    elementoSwal.setAttribute('data-bs-toggle', 'modal');
+    elementoSwal.setAttribute('data-bs-target', '#modalDeIngreso');
+  }
+
+  const eliminarAtributosSwal = (elementoSwal) => {
+    elementoSwal.addEventListener('click', () => {
+      elementoSwal.removeAttribute('aria-expanded', 'false');
+      elementoSwal.removeAttribute('data-bs-toggle', 'modal');
+      elementoSwal.removeAttribute('data-bs-target', '#modalDeIngreso');
+      })
+  }
+
+  agregarAtributosSwal(botonConfirmSw)
+  eliminarAtributosSwal(botonConfirmSw)
+  agregarAtributosSwal(swalBackground)
+  eliminarAtributosSwal(swalBackground)
 }
 
 form.addEventListener("submit", realizarIngreso);
