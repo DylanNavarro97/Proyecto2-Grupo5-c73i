@@ -148,9 +148,7 @@ const guardarCambios = (e) => {
   listaCancion[posicionCancion].categoria = generoModInput.value;
   listaCancion[posicionCancion].linkImg = imgModInput.value;
   listaCancion[posicionCancion].linkCancion = cancionLinkModInput.value;
-
   guardarEnLocalstorage();
-
   limpiarFormulario(formModCancion);
   location.reload();
   cargaInicial();
