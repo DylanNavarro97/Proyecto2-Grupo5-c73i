@@ -86,8 +86,7 @@ const crearCard = (cancion) => {
         </button>
         <button
         class="btn btn-outline-danger"
-          data-bs-toggle="modal"
-          data-bs-target="#modalEliminar"
+          onclick="borrarCancion('${cancion.id}')"
         >
           <i class="bi bi-trash iconosBtn"></i>
           </button>
@@ -158,6 +157,16 @@ const cargaInicial = () => {
   if (listaCancion.length >= 0) {
     listaCancion.map((cancion) => crearCard(cancion));
   }
+};
+
+window.borrarCancion = (idContacto) => {
+  const posicionCancion = listaCancion.findIndex(
+    (cancion) => cancion.id === idContacto
+  );
+  listaCancion.splice(posicionCancion, 1);
+  guardarEnLocalstorage();
+  location.reload();
+  cargaInicial();
 };
 
 formModCancion.addEventListener("submit", guardarCambios);
