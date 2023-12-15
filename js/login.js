@@ -20,18 +20,28 @@ const realizarIngreso = (e) => {
 };
 
 const cerrarSesion = () => {
-    esconderBotonCerrarSesion()
+  esconderBotonCerrarSesion();
+  borrarUserDeLocalStorage()
 };
 
 const compararEmailConUsuarios = (email, usuarios) => {
+  let usuarioOk = false;
+
   if (usuarios.length > 0) {
     for (let usuario of usuarios) {
+      console.log(usuario.email);
       if (usuario.email === email) {
-        guardarUserEnLocalStorage(usuario);
-        esconderBotonIngreso();
-      } else {
-        alert("No existe el usuario");
+        usuarioOk = usuario
       }
+    }
+    if (usuarioOk){
+      guardarUserEnLocalStorage(usuarioOk);
+      esconderBotonIngreso();
+      limpiarFormulario(form)
+      alertaOkSwal()
+      cerrarModalYSweetAlert()
+    } else {
+      console.log('No existe el usuario')
     }
   } else {
     alert("No existe el usuario");
@@ -40,17 +50,48 @@ const compararEmailConUsuarios = (email, usuarios) => {
 
 const esconderBotonIngreso = () => {
   botonIngreso.className = "btn btn-primary btnIngresar d-none";
-  botonLogOut.className = "btn btn-primary btnIngresar";
+  botonLogOut.className = "btn btn-primary btnCerrarSesion";
 };
 
 const esconderBotonCerrarSesion = () => {
-  botonLogOut.className = "btn btn-primary btnIngresar d-none";
+  botonLogOut.className = "btn btn-primary btnCerrarSesion d-none";
   botonIngreso.className = "btn btn-primary btnIngresar";
 };
 
 const guardarUserEnLocalStorage = (usuario) => {
   localStorage.setItem("usuarioLogeado", JSON.stringify(usuario));
 };
+
+const borrarUserDeLocalStorage = () => {
+  localStorage.removeItem("usuarioLogeado")
+}
+
+const limpiarFormulario = (form) => {
+  form.reset()
+}
+
+const alertaOkSwal = () => {
+  Swal.fire({
+    position: "center",
+    icon: "success",
+    title: "Se ha iniciado sesión correctamente",
+    showConfirmButton: true,
+    timer: false,
+  });
+};
+
+const cerrarModalYSweetAlert = () => {
+  const botonConfirmSw = document.querySelector('.swal2-confirm')
+  botonConfirmSw.setAttribute('aria-expanded', 'false');
+  botonConfirmSw.setAttribute('data-bs-toggle', 'modal');
+  botonConfirmSw.setAttribute('data-bs-target', '#modalDeIngreso');
+
+  botonConfirmSw.addEventListener('click', () => {
+  botonConfirmSw.removeAttribute('aria-expanded', 'false');
+  botonConfirmSw.removeAttribute('data-bs-toggle', 'modal');
+  botonConfirmSw.removeAttribute('data-bs-target', '#modalDeIngreso');
+  })
+}
 
 form.addEventListener("submit", realizarIngreso);
 botonLogOut.addEventListener("click", cerrarSesion);
