@@ -33,13 +33,13 @@ const compararEmailConUsuarios = (email, usuarios) => {
       }
     }
     if (usuarioOk) {
+      // compararPasswordUsuario(usuarioOk);
+      // guardarUserEnLocalStorage(usuarioOk);
+      // esconderBotonIngreso();
+      // limpiarFormulario(form);
+      // alertaOkSwal();
+      // cerrarModalYSweetAlert();
       compararPasswordUsuario(usuarioOk);
-      guardarUserEnLocalStorage(usuarioOk);
-      esconderBotonIngreso();
-      limpiarFormulario(form);
-      alertaOkSwal();
-      cerrarModalYSweetAlert();
-      // recargarPagina();
     } else {
       console.log("No existe el usuario");
     }
@@ -57,8 +57,9 @@ const compararPasswordUsuario = (usuario) => {
     limpiarFormulario(form);
     alertaOkSwal();
     cerrarModalYSweetAlert();
-    // recargarPagina()
     console.log("es la misma contraseña");
+  } else {
+    console.log('contraseña incorrecta')
   }
 };
 
@@ -97,10 +98,9 @@ const alertaOkSwal = () => {
     timer: false,
   }).then((result) => {
     const swalBackground = document.querySelector(".swal2-container");
-    swalBackground.addEventListener('click', () => recargarPagina())
-
-    if (result.isConfirmed){
-      recargarPagina()
+    swalBackground.addEventListener("click", () => {recargarPagina()});
+    if (result.isConfirmed) {
+      recargarPagina();
     }
   });
 };
@@ -130,8 +130,6 @@ const cerrarModalYSweetAlert = () => {
   eliminarAtributosSwal(botonConfirmSw);
   agregarAtributosSwal(swalBackground);
   eliminarAtributosSwal(swalBackground);
-
-
 };
 
 const agregarAtributosSwal = (elementoSwal) => {
