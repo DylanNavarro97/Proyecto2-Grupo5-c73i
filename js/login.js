@@ -20,7 +20,7 @@ const realizarIngreso = (e) => {
 };
 
 const cerrarSesion = () => {
-  alertaCerrarSesionSwal()
+  alertaCerrarSesionSwal();
 };
 
 const compararEmailConUsuarios = (email, usuarios) => {
@@ -28,22 +28,37 @@ const compararEmailConUsuarios = (email, usuarios) => {
 
   if (usuarios.length > 0) {
     for (let usuario of usuarios) {
-      console.log(usuario.email);
       if (usuario.email === email) {
         usuarioOk = usuario;
       }
     }
     if (usuarioOk) {
+      compararPasswordUsuario(usuarioOk);
       guardarUserEnLocalStorage(usuarioOk);
       esconderBotonIngreso();
       limpiarFormulario(form);
       alertaOkSwal();
       cerrarModalYSweetAlert();
+      // recargarPagina();
     } else {
       console.log("No existe el usuario");
     }
   } else {
     alert("No existe el usuario");
+  }
+};
+
+const compararPasswordUsuario = (usuario) => {
+  const inputPassword = document.querySelector(".ingresoPasswordInput").value;
+
+  if (usuario.contraseña === inputPassword) {
+    guardarUserEnLocalStorage(usuario);
+    esconderBotonIngreso();
+    limpiarFormulario(form);
+    alertaOkSwal();
+    cerrarModalYSweetAlert();
+    // recargarPagina()
+    console.log("es la misma contraseña");
   }
 };
 
@@ -70,8 +85,8 @@ const limpiarFormulario = (form) => {
 };
 
 const recargarPagina = () => {
-  location.reload()
-}
+  location.reload();
+};
 
 const alertaOkSwal = () => {
   Swal.fire({
@@ -80,6 +95,13 @@ const alertaOkSwal = () => {
     title: "Se ha iniciado sesión correctamente",
     showConfirmButton: true,
     timer: false,
+  }).then((result) => {
+    const swalBackground = document.querySelector(".swal2-container");
+    swalBackground.addEventListener('click', () => recargarPagina())
+
+    if (result.isConfirmed){
+      recargarPagina()
+    }
   });
 };
 
@@ -93,7 +115,7 @@ const alertaCerrarSesionSwal = () => {
     if (result.isConfirmed) {
       esconderBotonCerrarSesion();
       borrarUserDeLocalStorage();
-      recargarPagina()
+      recargarPagina();
     } else if (result.isDenied) {
       Swal.fire("Changes are not saved", "", "info");
     }
@@ -108,6 +130,8 @@ const cerrarModalYSweetAlert = () => {
   eliminarAtributosSwal(botonConfirmSw);
   agregarAtributosSwal(swalBackground);
   eliminarAtributosSwal(swalBackground);
+
+
 };
 
 const agregarAtributosSwal = (elementoSwal) => {
