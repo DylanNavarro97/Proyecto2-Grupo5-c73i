@@ -3,6 +3,7 @@ import { verificarEmail, verificarPassword } from "./verificacionesForm.js";
 
 const usuarios = JSON.parse(localStorage.getItem("usuarios")) || [];
 const form = document.querySelector(".formularioDeRegistro");
+const formIngreso = document.querySelector(".formularioIngresar")
 
 const crearUsuario = (e) => {
   e.preventDefault();
@@ -27,7 +28,8 @@ const verificarFormRegistro = (email, password) => {
       guardarEnLocalStorage();
       alertaOkSwal();
       cerrarModalYSweetAlert()
-      limpiarFormulario();
+      limpiarFormulario(form);
+      limpiarFormulario(formIngreso)
     } else {
       alertaEmailExistenteSwal()
     }
@@ -56,7 +58,7 @@ const guardarEnLocalStorage = () => {
   localStorage.setItem(`usuarios`, JSON.stringify(usuarios));
 };
 
-const limpiarFormulario = () => {
+const limpiarFormulario = (form) => {
   form.reset();
 };
 
