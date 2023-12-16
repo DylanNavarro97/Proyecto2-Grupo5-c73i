@@ -76,5 +76,29 @@ const alertaOkSwal = () => {
   });
 };
 
+// const cerrarModalYSweetAlert = () => {
+//   const botonConfirmSw = document.querySelector(".swal2-confirm");
+//   const swalBackground = document.querySelector(".swal2-container");
+
+//   agregarAtributosSwal(botonConfirmSw);
+//   eliminarAtributosSwal(botonConfirmSw);
+//   agregarAtributosSwal(swalBackground);
+//   eliminarAtributosSwal(swalBackground);
+// };
+
+// const agregarAtributosSwal = (elementoSwal) => {
+//   elementoSwal.setAttribute("aria-expanded", "false");
+//   elementoSwal.setAttribute("data-bs-toggle", "modal");
+//   elementoSwal.setAttribute("data-bs-target", "#modalDeIngreso");
+// };
+
+// const eliminarAtributosSwal = (elementoSwal) => {
+//   elementoSwal.addEventListener("click", () => {
+//     elementoSwal.removeAttribute("aria-expanded", "false");
+//     elementoSwal.removeAttribute("data-bs-toggle", "modal");
+//     elementoSwal.removeAttribute("data-bs-target", "#modalDeIngreso");
+//   });
+// };
+
 usuarioAdmin();
 form.addEventListener("submit", crearUsuario);
