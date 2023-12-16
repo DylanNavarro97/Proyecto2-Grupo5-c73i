@@ -38,7 +38,7 @@ const compararEmailConUsuarios = (email, usuarios) => {
       alertaSwalEmailIncorrecto()
     }
   } else {
-    alert("No existe el usuario");
+    alertaSwalEmailIncorrecto()
   }
 };
 
@@ -127,4 +127,5 @@ const alertaSwalContraseñaIncorrecta = () => {
 }
 
 form.addEventListener("submit", realizarIngreso);
+botonIngreso.addEventListener('click', () => limpiarFormulario(form))
 botonLogOut.addEventListener("click", cerrarSesion);
