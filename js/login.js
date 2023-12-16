@@ -50,10 +50,9 @@ const compararPasswordUsuario = (usuario) => {
     esconderBotonIngreso();
     limpiarFormulario(form);
     alertaOkSwal();
-    // cerrarModalYSweetAlert();
     console.log("es la misma contraseña");
   } else {
-    console.log('contraseña incorrecta')
+    console.log("contraseña incorrecta");
   }
 };
 
@@ -91,7 +90,7 @@ const alertaOkSwal = () => {
     showConfirmButton: true,
     timer: false,
   }).then((result) => {
-    recargarPagina()
+    recargarPagina();
   });
 };
 
@@ -111,8 +110,6 @@ const alertaCerrarSesionSwal = () => {
     }
   });
 };
-
-
 
 form.addEventListener("submit", realizarIngreso);
 botonLogOut.addEventListener("click", cerrarSesion);
