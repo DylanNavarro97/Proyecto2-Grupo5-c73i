@@ -35,7 +35,7 @@ const compararEmailConUsuarios = (email, usuarios) => {
     if (usuarioOk) {
       compararPasswordUsuario(usuarioOk);
     } else {
-      console.log("No existe el usuario");
+      alertaSwalEmailIncorrecto()
     }
   } else {
     alert("No existe el usuario");
@@ -50,9 +50,8 @@ const compararPasswordUsuario = (usuario) => {
     esconderBotonIngreso();
     limpiarFormulario(form);
     alertaOkSwal();
-    console.log("es la misma contraseña");
   } else {
-    console.log("contraseña incorrecta");
+    alertaSwalContraseñaIncorrecta()
   }
 };
 
@@ -110,6 +109,22 @@ const alertaCerrarSesionSwal = () => {
     }
   });
 };
+
+const alertaSwalEmailIncorrecto = () => {
+  Swal.fire({
+    icon: "error",
+    title: "Correo no encontrado",
+    text: "Revisa que el correo este bien escrito"
+  });
+}
+
+const alertaSwalContraseñaIncorrecta = () => {
+  Swal.fire({
+    icon: "error",
+    title: "Contraseña incorrecta",
+    text: "Por favor, verifica tu contraseña e inténtalo nuevamente."
+  });
+}
 
 form.addEventListener("submit", realizarIngreso);
 botonLogOut.addEventListener("click", cerrarSesion);
