@@ -1,37 +1,33 @@
 import { Usuario } from "./Usuario.js";
 import { verificarEmail, verificarPassword } from "./verificacionesForm.js";
 
-const usuarios = JSON.parse(localStorage.getItem("usuarios")) || [];
+let usuarios = JSON.parse(localStorage.getItem("usuarios")) || [];
 const form = document.querySelector(".formularioDeRegistro");
-const formIngreso = document.querySelector(".formularioIngresar")
+const formIngreso = document.querySelector(".formularioIngresar");
 
 const crearUsuario = (e) => {
   e.preventDefault();
 
+  usuarios = JSON.parse(localStorage.getItem("usuarios")) || [];
   const inputEmail = document.querySelector(".registroEmailInput").value;
+  console.log(inputEmail);
   const inputPassword = document.querySelector(".registroPasswordInput").value;
 
-  verificarFormRegistro(inputEmail, inputPassword)
+  verificarFormRegistro(inputEmail, inputPassword);
 };
 
 const verificarFormRegistro = (email, password) => {
   if (verificarEmail(email, 5, 50) && verificarPassword(password, 5, 50)) {
-
     if (verificarEmailClonado(email)) {
-      const usuario = new Usuario(
-        crypto.randomUUID(),
-        email,
-        password,
-        "user"
-      );
+      const usuario = new Usuario(crypto.randomUUID(), email, password, "user");
       usuarios.push(usuario);
       guardarEnLocalStorage();
       alertaOkSwal();
-      cerrarModalYSweetAlert()
+      cerrarModalYSweetAlert();
       limpiarFormulario(form);
-      limpiarFormulario(formIngreso)
+      limpiarFormulario(formIngreso);
     } else {
-      alertaEmailExistenteSwal()
+      alertaEmailExistenteSwal();
     }
   } else {
     return false;
@@ -43,7 +39,7 @@ const verificarEmailClonado = (email) => {
   for (let usuario of usuarios) {
     if (usuario.email === email) {
       emailExistente = true;
-      break
+      break;
     }
   }
 
@@ -63,24 +59,26 @@ const limpiarFormulario = (form) => {
 };
 
 const usuarioAdmin = () => {
-  let existeUserAdmin = false;
+  if (verificarEmailClonado("admin@admin.com")) {
+    let existeUserAdmin = false;
 
-  for (let usuario of usuarios) {
-    if (usuario.tipoDeUsuario === "admin") {
-      existeUserAdmin = true;
+    for (let usuario of usuarios) {
+      if (usuario.tipoDeUsuario === "admin") {
+        existeUserAdmin = true;
+      }
     }
-  }
 
-  if (!existeUserAdmin) {
-    const usuarioAdmin = new Usuario(
-      crypto.randomUUID(),
-      "admin@admin.com",
-      "admin",
-      "admin"
-    );
+    if (!existeUserAdmin) {
+      const usuarioAdmin = new Usuario(
+        crypto.randomUUID(),
+        "admin@admin.com",
+        "admin",
+        "admin"
+      );
 
-    usuarios.push(usuarioAdmin);
-    guardarEnLocalStorage();
+      usuarios.push(usuarioAdmin);
+      guardarEnLocalStorage();
+    }
   }
 };
 
@@ -100,10 +98,10 @@ const alertaEmailExistenteSwal = () => {
     title: "Este correo ya fue registrado",
     text: "Por favor, utiliza una dirección de correo diferente.",
     customClass: {
-      popup: 'text-center',
+      popup: "text-center",
     },
   });
-}
+};
 
 const cerrarModalYSweetAlert = () => {
   const botonConfirmSw = document.querySelector(".swal2-confirm");
