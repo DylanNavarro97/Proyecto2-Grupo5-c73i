@@ -34,6 +34,7 @@ const cancionNueva = (e) => {
 
   crearCard(CancionNueva, listaCancion.length);
   limpiarFormulario(formCrear);
+  location.reload();
 };
 
 const guardarEnLocalstorage = () => {
@@ -172,4 +173,5 @@ window.borrarCancion = (idContacto) => {
 formModCancion.addEventListener("submit", guardarCambios);
 formCrear.addEventListener("submit", cancionNueva);
 
+console.log(listaCancion)
 cargaInicial();
