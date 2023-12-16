@@ -1,10 +1,5 @@
-.cancionFondo{
+.cancion{
     width: 25%;
-    height: 250px;
-    list-style: none;
-    background-position: center;
-    background-size: cover;
-    background-repeat: no-repeat;
 }
 
 .cancion:hover{
@@ -22,10 +17,6 @@
     color: #616161;
 }
 
-.musicaParrafo{
-    margin-bottom: 70px;
-}
-
 .musicaEfecto{
     background-color: #000000AA;
     position: relative;
@@ -35,48 +26,20 @@
     color: white;
 }
 
-.fa-play{
-    font-size: 50px;
-}
-
-.btnPlay{
-    color: #ffffff;
-    position: absolute;
-    top: 35%;
-    left: 45%;
-}
-
-.fa-circle-plus{
-    position: absolute;
-    bottom: 15px;
-    right: 15px;
-    font-size: 30px;
-}
-
 @media screen and (min-width: 768px) and (max-width: 1024px) {
-    .cancionFondo{
+    .cancion{
         width: 33%;
     }
 }
 
-/* MOBILE */
-/*
-.musicaParrafo{
-    font-size: 14px;
-    width: 180px;
+@media screen and (min-width: 450px) and (max-width: 767px) {
+    .cancion{
+        width: 50%;
+    }
 }
-.textoCancion{
-    font-size: 12px;
+
+@media screen and (max-width: 449px) {
+    .cancion{
+        width: 80%;
+    }
 }
-.fa-play{
-    font-size: 30px;
-}
-.cancionFondo{
-    width: 180px;
-    height: 200px;
-    list-style: none;
-    background-position: center;
-    background-size: cover;
-    background-repeat: no-repeat;
-}
-*/
