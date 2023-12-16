@@ -33,12 +33,6 @@ const compararEmailConUsuarios = (email, usuarios) => {
       }
     }
     if (usuarioOk) {
-      // compararPasswordUsuario(usuarioOk);
-      // guardarUserEnLocalStorage(usuarioOk);
-      // esconderBotonIngreso();
-      // limpiarFormulario(form);
-      // alertaOkSwal();
-      // cerrarModalYSweetAlert();
       compararPasswordUsuario(usuarioOk);
     } else {
       console.log("No existe el usuario");
@@ -97,11 +91,7 @@ const alertaOkSwal = () => {
     showConfirmButton: true,
     timer: false,
   }).then((result) => {
-    const swalBackground = document.querySelector(".swal2-container");
-    swalBackground.addEventListener("click", () => {recargarPagina()});
-    if (result.isConfirmed) {
-      recargarPagina();
-    }
+    recargarPagina()
   });
 };
 
