@@ -53,7 +53,7 @@ export default class Cancion{
 
     toJSON(){
         return {
-          id: this.id,
+          id: this.#id,
           banda: this.#banda,
           cancion: this.#nombreCancion,
           categoria: this.#categoria,
