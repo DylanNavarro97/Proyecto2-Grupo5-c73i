@@ -1,4 +1,8 @@
 import Cancion from "./Cancion.js";
+import { validarCamposAdmin } from "./verificacionesForm.js";
+
+
+
 
 const listaCancion = JSON.parse(localStorage.getItem("cancionKey")) || [];
 const banda = document.querySelector("#artistainput");
@@ -19,22 +23,24 @@ let posiCancion;
 const cancionNueva = (e) => {
   e.preventDefault();
 
-  const CancionNueva = new Cancion(
-    crypto.randomUUID(),
-    banda.value,
-    nombre.value,
-    categoria.value,
-    img.value,
-    linkCancion.value
-  );
-
-  listaCancion.push(CancionNueva);
-
-  guardarEnLocalstorage();
-
-  crearCard(CancionNueva, listaCancion.length);
-  limpiarFormulario(formCrear);
-  location.reload();
+  if(validarCamposAdmin(banda.value,2,30)&& validarCamposAdmin(nombre.value,2,50) && validarCamposAdmin(categoria.value,2,50)){
+    const CancionNueva = new Cancion(
+      crypto.randomUUID(),
+      banda.value,
+      nombre.value,
+      categoria.value,
+      img.value,
+      linkCancion.value
+    );
+  
+    listaCancion.push(CancionNueva);
+  
+    guardarEnLocalstorage();
+  
+    crearCard(CancionNueva, listaCancion.length);
+    limpiarFormulario(formCrear);
+    location.reload();
+  }
 };
 
 const guardarEnLocalstorage = () => {
