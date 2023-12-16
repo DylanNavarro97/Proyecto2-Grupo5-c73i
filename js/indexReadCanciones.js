@@ -1,4 +1,10 @@
 const listaCancion = JSON.parse(localStorage.getItem("cancionKey")) || [];
+const videoDetalle = document.querySelector("#frameVideo");
+const idDetalle = document.querySelector("#detalleId");
+const artistaDetalle = document.querySelector("#artistaDetalle");
+const cancionDetalle = document.querySelector("#cancionDetalle");
+const imgDetalle = document.querySelector("#imgDetalle");
+const GeneroDetalle = document.querySelector("#GeneroDetalle");
 
 for (let cancion of listaCancion) {
   const crearCard = (cancion) => {
@@ -13,7 +19,7 @@ for (let cancion of listaCancion) {
                           <h6 class="ms-1 textoCancion">${cancion.banda}</h6>
                       </div>
                       <div class="d-flex flex-column">
-                          <button class="btn border-0 btnPlay p-1"><i class="bi bi-play-fill w-100 fs-2"></i></button>
+                          <button class="btn border-0 btnPlay p-1" data-bs-toggle="modal" data-bs-target="#modalCardDetalles" onclick="detalleCancion('${cancion.id}')"><i class="bi bi-play-fill w-100 fs-2"></i></button>
                           <button class="btn border-0 btnAgregar p-1 mx-lg-2" onclick="cancionFavorita('${cancion.id}')"><i class="bi bi-plus-circle-fill fs-5"></i></button>
                       </div>
                   </div>
