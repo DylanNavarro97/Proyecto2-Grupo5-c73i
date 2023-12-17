@@ -1,4 +1,5 @@
 const listaCancion = JSON.parse(localStorage.getItem("cancionKey")) || [];
+const listaReproduccionCancion = JSON.parse(localStorage.getItem("listaReproduccionCancionKey")) || [];
 const videoDetalle = document.querySelector("#frameVideo");
 const idDetalle = document.querySelector("#detalleId");
 const artistaDetalle = document.querySelector("#artistaDetalle");
@@ -54,3 +55,16 @@ window.detalleCancion = (idCancion) => {
   imgDetalle.setAttribute("src", img.toString());
   videoDetalle.setAttribute("src", link.toString());
 };
+
+const guardarEnLocalstorage = () => {
+  localStorage.setItem("listaReproduccionCancionKey", JSON.stringify(listaReproduccionCancion));
+};
+
+const cancionFavorita = (idCancion) => {
+  const posicionCancion = listaCancion.findIndex(
+    (cancion) => cancion.id === idCancion
+  );
+  listaReproduccionCancion.push(idCancion)
+  guardarEnLocalstorage()
+  
+}
