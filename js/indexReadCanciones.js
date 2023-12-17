@@ -21,7 +21,7 @@ for (let cancion of listaCancion) {
                       </div>
                       <div class="d-flex flex-column">
                           <button class="btn border-0 btnPlay p-1" data-bs-toggle="modal" data-bs-target="#modalCardDetalles" onclick="detalleCancion('${cancion.id}')"><i class="bi bi-play-fill w-100 fs-2"></i></button>
-                          <button class="btn border-0 btnAgregar p-1 mx-lg-2" onclick="cancionFavorita('${cancion.id}')"><i class="bi bi-plus-circle-fill fs-5"></i></button>
+                          <button class="btn border-0 btnAgregar p-1" onclick="cancionFavorita('${cancion.id}')"><i class="bi bi-plus-circle-fill fs-5"></i></button>
                       </div>
                   </div>
               </div>
@@ -30,12 +30,6 @@ for (let cancion of listaCancion) {
   };
   crearCard(cancion);
 }
-
-const cargaInicial = () => {
-  if (listaCancion.length >= 0) {
-    listaCancion.map((cancion) => crearCard(cancion));
-  }
-};
 
 window.detalleCancion = (idCancion) => {
   const posicionCancion = listaCancion.findIndex(
@@ -60,11 +54,15 @@ const guardarEnLocalstorage = () => {
   localStorage.setItem("listaReproduccionCancionKey", JSON.stringify(listaReproduccionCancion));
 };
 
-const cancionFavorita = (idCancion) => {
+window.cancionFavorita = (idCancion) => {
   const posicionCancion = listaCancion.findIndex(
     (cancion) => cancion.id === idCancion
   );
-  listaReproduccionCancion.push(idCancion)
-  guardarEnLocalstorage()
-  
+  listaReproduccionCancion.push(listaCancion[posicionCancion])
+  guardarEnLocalstorage();
+
+  Swal.fire({
+    title: "La canción fue agregada con exito a la lista de reproducción",
+    icon: "success"
+  });
 }
