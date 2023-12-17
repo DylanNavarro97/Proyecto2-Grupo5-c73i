@@ -29,3 +29,28 @@ for (let cancion of listaCancion) {
   };
   crearCard(cancion);
 }
+
+const cargaInicial = () => {
+  if (listaCancion.length >= 0) {
+    listaCancion.map((cancion) => crearCard(cancion));
+  }
+};
+
+window.detalleCancion = (idCancion) => {
+  const posicionCancion = listaCancion.findIndex(
+    (cancion) => cancion.id === idCancion
+  );
+
+  let banda = listaCancion[posicionCancion].banda;
+  let cancion = listaCancion[posicionCancion].cancion;
+  let genero = listaCancion[posicionCancion].categoria;
+  let img = listaCancion[posicionCancion].linkImg;
+  let link = listaCancion[posicionCancion].linkCancion;
+
+  idDetalle.innerHTML = `id: ${listaCancion[posicionCancion].id}`;
+  artistaDetalle.innerHTML = `Artista: ${banda}`;
+  cancionDetalle.innerHTML = `Cancion: ${cancion}`;
+  GeneroDetalle.innerHTML = `Genero: ${genero}`;
+  imgDetalle.setAttribute("src", img.toString());
+  videoDetalle.setAttribute("src", link.toString());
+};
