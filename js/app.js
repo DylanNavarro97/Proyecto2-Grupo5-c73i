@@ -1,4 +1,8 @@
 import Cancion from "./Cancion.js";
+import { validarCamposAdmin, verificarURL, verificarUrlYoutube } from "./verificacionesForm.js";
+
+
+
 
 const listaCancion = JSON.parse(localStorage.getItem("cancionKey")) || [];
 const banda = document.querySelector("#artistainput");
@@ -15,25 +19,27 @@ const imgDetalle = document.querySelector("#imgDetalle");
 const GeneroDetalle = document.querySelector("#GeneroDetalle");
 const formModCancion = document.querySelector("#formModCancion");
 let posiCancion;
+let bandera = false;
+
 
 const cancionNueva = (e) => {
   e.preventDefault();
 
-  const CancionNueva = new Cancion(
-    crypto.randomUUID(),
-    banda.value,
-    nombre.value,
-    categoria.value,
-    img.value,
-    linkCancion.value
-  );
+  if(validarCamposAdmin(banda.value,"artista",2,30)&& validarCamposAdmin(nombre.value,"cancion",2,50) && validarCamposAdmin(categoria.value,"genero",2,50)&& verificarURL(img.value,10,2000) && verificarUrlYoutube(linkCancion.value,10,2000) ){
+    const CancionNueva = new Cancion(
+      crypto.randomUUID(),
+      banda.value,
+      nombre.value,
+      categoria.value,
+      img.value,
+      linkCancion.value
+    );
+    listaCancion.push(CancionNueva);
+    guardarEnLocalstorage();
+    limpiarFormulario(formCrear);
+    location.reload();
 
-  listaCancion.push(CancionNueva);
-
-  guardarEnLocalstorage();
-
-  crearCard(CancionNueva, listaCancion.length);
-  limpiarFormulario(formCrear);
+  }
 };
 
 const guardarEnLocalstorage = () => {
@@ -142,15 +148,18 @@ window.recuperarId = (idMod) => {
 const guardarCambios = (e) => {
   e.preventDefault();
   const posicionCancion = posiCancion;
-  listaCancion[posicionCancion].banda = artistaModinput.value;
-  listaCancion[posicionCancion].cancion = cancionModInput.value;
-  listaCancion[posicionCancion].categoria = generoModInput.value;
-  listaCancion[posicionCancion].linkImg = imgModInput.value;
-  listaCancion[posicionCancion].linkCancion = cancionLinkModInput.value;
-  guardarEnLocalstorage();
-  limpiarFormulario(formModCancion);
-  location.reload();
-  cargaInicial();
+  if(validarCamposAdmin(artistaModinput.value,"artista",2,30)&& validarCamposAdmin(cancionModInput.value,"cancion",2,50) && validarCamposAdmin(generoModInput.value,"genero",2,50)&& verificarURL(imgModInput.value,10,2000) && verificarUrlYoutube(cancionLinkModInput.value,10,2000) ){
+    listaCancion[posicionCancion].banda = artistaModinput.value;
+    listaCancion[posicionCancion].cancion = cancionModInput.value;
+    listaCancion[posicionCancion].categoria = generoModInput.value;
+    listaCancion[posicionCancion].linkImg = imgModInput.value;
+    listaCancion[posicionCancion].linkCancion = cancionLinkModInput.value;
+    guardarEnLocalstorage();
+    limpiarFormulario(formModCancion);
+    location.reload();
+    
+  }
+
 };
 
 const cargaInicial = () => {
@@ -160,16 +169,30 @@ const cargaInicial = () => {
 };
 
 window.borrarCancion = (idContacto) => {
-  const posicionCancion = listaCancion.findIndex(
-    (cancion) => cancion.id === idContacto
-  );
-  listaCancion.splice(posicionCancion, 1);
-  guardarEnLocalstorage();
-  location.reload();
-  cargaInicial();
-};
+  Swal.fire({
+    text: "¿Estas seguro de eliminar la cancion?",
+    background: '#1B2631',
+    color: '#fff  ',
+    showCancelButton: true,
+    confirmButtonColor: "#C2224B",
+    cancelButtonColor: "#11CC2D",
+    confirmButtonText: "Eliminar",
+    cancelButtonText: "Cancelar",
+  }).then((result) => {
+    if(result.isConfirmed) {
+    const posicionCancion = listaCancion.findIndex(
+      (cancion) => cancion.id === idContacto
+    );
+    listaCancion.splice(posicionCancion, 1);
+    guardarEnLocalstorage();
+    location.reload();
+    cargaInicial();
+  }
+  })
+}
 
 formModCancion.addEventListener("submit", guardarCambios);
 formCrear.addEventListener("submit", cancionNueva);
 
+console.log(listaCancion)
 cargaInicial();
