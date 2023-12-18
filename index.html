@@ -85,10 +85,11 @@
         <h2>CANCIONES</h2>
         <p class="musicaParrafo">Acá vas a encontrar todo lo que querés escuchar.</p>
         <nav class="navbar bg-body-tertiary mb-3">
-            <div class="container-fluid">
-              <form class="d-flex" role="search">
+            <div class="container align-content-center justify-content-center">
+              <form class="d-flex " role="search" id="buscarCanción">
                 <div class="d-flex align-items-center decoracionBusqueda">
-                    <i class="fa-solid fa-music p-2 busquedaIcono"></i><input class="form-control me-2" type="search" placeholder="Canción" aria-label="Search">
+                    <i class="fa-solid fa-music p-2 busquedaIcono mx-2"></i>
+                    <input class="form-control w-100 mx-2" type="search" placeholder="Canción" aria-label="Search" minlength="1" maxlength="100" id="inputBuscarCancion">
                 </div>
                 <button class="btn btn-outline-danger" type="submit">Buscar</button>
               </form>

@@ -6,12 +6,15 @@ const artistaDetalle = document.querySelector("#artistaDetalle");
 const cancionDetalle = document.querySelector("#cancionDetalle");
 const imgDetalle = document.querySelector("#imgDetalle");
 const GeneroDetalle = document.querySelector("#GeneroDetalle");
+const formBuscarCancion = document.querySelector("#buscarCanción");
+const inputBuscarCancion = document.querySelector("#inputBuscarCancion");
+
 
 for (let cancion of listaCancion) {
   const crearCard = (cancion) => {
     const contenedorCanciones = document.querySelector("#contenedorCanciones");
     contenedorCanciones.innerHTML += `
-          <div class="cancion">
+          <div class="cancion" id="${cancion.cancion}">
               <div class="d-flex justify-content-end flex-column w-100 h-100 musicaEfecto">
                   <img src=${cancion.linkImg} alt="imagen de canción">
                   <div class="d-flex justify-content-between align-items-center">
@@ -66,3 +69,24 @@ window.cancionFavorita = (idCancion) => {
     icon: "success"
   });
 }
+
+const buscarCancion =(e)=>{
+  e.preventDefault();
+const nombre=inputBuscarCancion.value;
+  const posicionCancion = listaCancion.findIndex(
+    (cancion) => cancion.cancion == `${nombre}`
+  );
+  if(posicionCancion == -1){
+    Swal.fire({text: `La cancion que buscas no está en nuestro sistema D:`,
+  background:'#1B2631',
+  color:'#fff'}); 
+  }else{
+    const sombraCancion = document.querySelector(`#${listaCancion[posicionCancion].cancion}`);
+    sombraCancion.className += " border border-warning " 
+    console.log(sombraCancion);
+  }
+}
+
+
+
+formBuscarCancion.addEventListener("submit",buscarCancion)
