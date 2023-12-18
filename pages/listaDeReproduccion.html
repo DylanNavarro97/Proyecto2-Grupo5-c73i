@@ -17,19 +17,25 @@
       href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.2/font/bootstrap-icons.min.css"
     />
     <link href="https://cdn.jsdelivr.net/npm/@sweetalert2/theme-dark@4/dark.css" rel="stylesheet">
-    <link rel="stylesheet" href="./styles/index.css"/>
-    <link rel="stylesheet" href="./styles/style.css"/>
-    <link rel="shortcut icon" href="./img/Ares.png" type="image/x-icon">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Nunito+Sans:opsz,wght@6..12,200&family=Roboto&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="../styles/style.css" />
+    <link rel="stylesheet" href="../styles/admin.css" />
+    <link rel="stylesheet" href="../styles/index.css">
+    <link rel="shortcut icon" href="../img/Ares.png" type="image/x-icon">
     <title>Ares</title>
   </head>
-
   <body data-bs-theme="dark">
-
     <header>
       
       <nav class="navbar navbar-expand-lg bg-body-tertiary">
         <div class="container-fluid">
-          <a class="navbar-brand" href="#">
+          <a class="navbar-brand" href="../index.html">
             <img src="../img/Ares.png" alt="Ares logo" />
           </a>
           <button
@@ -50,20 +56,20 @@
             <div class="col-12 col-lg">
               <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                 <li class="nav-item">
-                  <a class="nav-link active" aria-current="page" href="#"
+                  <a class="nav-link" aria-current="page" href="../index.html"
                     >Inicio</a>
                 </li>
 
                 <li class="nav-item">
-                  <a class="nav-link" href="./pages/nosotros.html">Sobre nosotros</a>
+                  <a class="nav-link" href="../pages/nosotros.html">Sobre nosotros</a>
                 </li>
 
                 <li class="nav-item">
-                  <a class="nav-link" href="./pages/listaDeReproduccion.html">Playlist</a>
+                  <a class="nav-link active" href="../pages/listaDeReproduccion.html">Playlist</a>
                 </li>
 
                 <li class="nav-item">
-                  <a class="nav-link administrar-link d-none" href="./pages/admin.html">Administrar</a>
+                  <a class="nav-link administrar-link d-none" href="../pages/admin.html">Administrar</a>
                 </li>
               </ul>
             </div>
@@ -75,11 +81,18 @@
                   <button
                     class="btn btn-primary btnIngresar"
                     type="button"
+                  <button
+                    class="btn btn-primary btnIngresar"
+                    type="button"
                     aria-expanded="false"
+                    data-bs-toggle="modal" 
+                    data-bs-target="#modalDeIngreso"
                     data-bs-toggle="modal" 
                     data-bs-target="#modalDeIngreso"
                   >
                     Ingreso <i class="bi bi-person-circle"></i>
+                  </button>
+                  <button class="btn btn-primary btnCerrarSesion d-none">Cerrar sesión</button>
                   </button>
                   <button class="btn btn-primary btnCerrarSesion d-none">Cerrar sesión</button>
                 </li>
@@ -92,46 +105,36 @@
     </header>
 
     <main>
-      <div class="container mt-5">
-        <h2>CANCIONES</h2>
-        <p class="musicaParrafo">Acá vas a encontrar todo lo que querés escuchar.</p>
-        <nav class="navbar bg-body-tertiary mb-3">
-            <div class="container align-content-center justify-content-center">
-              <form class="d-flex" role="search" id="buscarCancion">
-                <div class="d-flex align-items-center decoracionBusqueda">
-                    <i class="fa-solid fa-music p-2 busquedaIcono mx-2"></i>
-                    <input class="form-control w-100 mx-2" type="search" placeholder="Canción" aria-label="Search" minlength="1" maxlength="100" id="inputBuscarCancion">
-                </div>
-                <button class="btn btn-outline-danger" type="submit">Buscar</button>
-              </form>
-            </div>
-        </nav>
-        <section>
-            <article class="d-flex p-0 flex-wrap justify-content-center justify-content-md-start" id="contenedorCanciones">
+      <section>
+        <h2 class="text-center text-ligth my-3">Lista de reproducción</h2>
+      </section>
+      <section class="container mt-5">
+        <article class="d-flex p-0 flex-wrap justify-content-center justify-content-md-start" id="contenedorCanciones">
               
-            </article>
-        </section>
-      </div>
+        </article>
+      </section>
     </main>
 
     <footer class="bd-footer py-4 py-md-3 mt-5 bg-body-tertiary">
       <div class="container py-4 py-md-2 px-4 px-md-3 text-body-secondary">
         <div class="row">
-          <div class="col-md-4  mb-3 mb-md-0 text-center">
-            <a class="navbar-brand" href="./index.html">
-              <img src="./img/Ares.png" alt="Ares logo" class="imgFooter" />
+          <div class="col-md-4 mb-3 mb-md-0 text-center">
+            <a class="navbar-brand" href="../index.html">
+              <img src="../img/Ares.png" alt="Ares logo" class="imgFooter" />
             </a>
             <ul class="list-unstyled small">
               <li class="mb-2">&copy; todos los derechos reservados</li>
             </ul>
           </div>
-          <div class="col-6 col-md-4 ms-lg-0  offset-lg-1 mb-3 mb-md-0 text-center">
+          <div
+            class="col-6 col-md-4 ms-lg-0 offset-lg-1 mb-3 mb-md-0 text-center"
+          >
             <h5>Enlaces</h5>
             <ul class="list-unstyled">
               <li>
                 <a
                   class="link-underline link-underline-opacity-0 link-body-emphasis link-underline-opacity-75-hover"
-                  href="./pages/nosotros.html"
+                  href="./nosotros.html"
                   >Nosotros</a
                 >
               </li>
@@ -147,21 +150,25 @@
               </li>
             </ul>
           </div>
-          <div class="col-6 col-md-4  mb-3 mb-md-0 text-center">
+          <div class="col-6 col-md-4 mb-3 mb-md-0 text-center">
             <h5>Redes</h5>
             <ul class="list-unstyled">
-              <li class="mb-2 ">
-                <a href="./pages/404.html"><i class="bi bi-whatsapp link-light fs-3 "></i></a>
-                <a href="./pages/404.html"><i class="bi bi-facebook link-light fs-3 mx-2"></i></a>
-                <a href="./pages/404.html"><i class="bi bi-twitter link-light fs-3"></i></a>
+              <li class="mb-2">
+                <a href="./404.html"><i class="bi bi-whatsapp link-light fs-3"></i></a>
+                <a href="./404.html"
+                  ><i class="bi bi-facebook link-light fs-3 mx-2"></i
+                ></a>
+                <a href="./404.html"><i class="bi bi-twitter link-light fs-3"></i></a>
               </li>
             </ul>
           </div>
         </div>
       </div>
     </footer>
+  </body>
   <!-- zona modal -->
-    <div
+
+  <div
     class="modal fade"
     id="modalCardDetalles"
     tabindex="-1"
@@ -277,86 +284,110 @@
     </div>
   </div>
 
-          <!-- Modal Ingreso -->
-    <div class="modal fade" id="modalDeIngreso" tabindex="-1" aria-labelledby="modalDeIngresoLabel" aria-hidden="true">
-      <div class="modal-dialog modal-dialog-centered">
-        <div class="modal-content">
-
-          <div class="modal-body">
-            <div class="d-flex justify-content-end p-1">
-              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-
-            <h4 class="text-center">Iniciar sesión</h4>
-    
-            <form class="container mb-5 formularioIngresar">
-              <div class="my-4">
-                <input type="email" class="form-control mb-2 ingresoEmailInput" placeholder="📧 Ingresar correo" required minlength="5" maxlength="50">
-                <input type="password" class="form-control ingresoPasswordInput" placeholder="🔒 Ingresar clave" required minlength="5" maxlength="50">
-              </div>
-    
-              <div>
-                <div class="d-flex justify-content-between">
-                  <a href="#" class="link link-primary link-underline-opacity-0" data-bs-toggle="modal" 
-                      data-bs-target="#modalDeRegistro">Registrarme</a>
-                  <a href="../pages/404.html" class="link link-primary link-underline-opacity-0">Olvidé mi clave</a>
-                </div>
-                <button 
-                type="submit" 
-                class="btn btn-primary w-100"
-                >Ingresar</button>
-              </div>
-            </form>
-    
-            <h4 class="text-center">- Iniciar sesión con -</h4>
-            <div class="d-flex justify-content-center">
-              <div class="w-75">
-                <a class="btn btn-primary mb-3 w-100 continuarIngreso" href="../pages/404.html"><i class="bi bi-facebook me-1"></i>Continuar con Facebook</a>
-                <a class="btn btn-primary w-100 continuarIngreso" href="../pages/404.html"><i class="bi bi-instagram me-1"></i>Continuar con Instagram</a>
-              </div>
-            </div>
-          </div>
-              
+  <div
+    class="modal fade"
+    id="modalEliminar"
+    tabindex="-1"
+    aria-labelledby="modalEliminarLabel"
+    aria-hidden="true"
+  >
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-body">
+          <h5 class="text-warning">¿Estas Seguro de eliminar esta Canción?</h5>
+        </div>
+        <div class="modal-footer">
+          <button
+            type="button"
+            class="btn btn-secondary"
+            data-bs-dismiss="modal"
+          >
+            cancelar
+          </button>
+          <button type="button" class="btn btn-danger">Eliminar</button>
         </div>
       </div>
     </div>
-    
-        <!-- Modal Registro -->
-    <div class="modal fade" id="modalDeRegistro" tabindex="-1" aria-labelledby="modalDeRegistroLabel" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered">
-          <div class="modal-content">
-            <div class="modal-body">
+  </div>
 
-              <div class="d-flex justify-content-end p-1">
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-              </div>
+  <!-- Modal Ingreso -->
+  <div class="modal fade" id="modalDeIngreso" tabindex="-1" aria-labelledby="modalDeIngresoLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
 
-              <h4 class="text-center">Registro</h4>
-      
-              <form class="container mb-5 formularioDeRegistro">
-                <div class="my-4">
-                  <input type="email" class="form-control mb-2 registroEmailInput" placeholder="📧 Ingresar correo" required minlength="5" maxlength="50">
-                  <input type="password" class="form-control registroPasswordInput" placeholder="🔒 Ingresar clave" required minlength="5" maxlength="50">
-                </div>
-                  <button type="submit" class="btn btn-primary w-100 botonRegistro">Registrarme</button>
-              </form>
-      
+        <div class="modal-body">
+          <div class="d-flex justify-content-end p-1">
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+
+          <h4 class="text-center">Iniciar sesión</h4>
+  
+          <form class="container mb-5 formularioIngresar">
+            <div class="my-4">
+              <input type="email" class="form-control mb-2 ingresoEmailInput" placeholder="📧 Ingresar correo" required minlength="5" maxlength="50">
+              <input type="password" class="form-control ingresoPasswordInput" placeholder="🔒 Ingresar clave" required minlength="5" maxlength="50">
+            </div>
+  
+            <div>
+              <div class="d-flex justify-content-between">
+                <a href="#" class="link link-primary link-underline-opacity-0" data-bs-toggle="modal" 
+                    data-bs-target="#modalDeRegistro">Registrarme</a>
+                <a href="../pages/404.html" class="link link-primary link-underline-opacity-0">Olvidé mi clave</a>
               </div>
-            </div>     
+              <button 
+              type="submit" 
+              class="btn btn-primary w-100"
+              >Ingresar</button>
+            </div>
+          </form>
+  
+          <h4 class="text-center">- Iniciar sesión con -</h4>
+          <div class="d-flex justify-content-center">
+            <div class="w-75">
+              <a class="btn btn-primary mb-3 w-100 continuarIngreso" href="../pages/404.html"><i class="bi bi-facebook me-1"></i>Continuar con Facebook</a>
+              <a class="btn btn-primary w-100 continuarIngreso" href="../pages/404.html"><i class="bi bi-instagram me-1"></i>Continuar con Instagram</a>
+            </div>
           </div>
         </div>
+            
+      </div>
     </div>
+  </div>
+  
+      <!-- Modal Registro -->
+  <div class="modal fade" id="modalDeRegistro" tabindex="-1" aria-labelledby="modalDeRegistroLabel" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+          <div class="modal-body">
+
+            <div class="d-flex justify-content-end p-1">
+                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+
+            <h4 class="text-center">Registro</h4>
     
-    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.js"></script>
-    <script src="https://kit.fontawesome.com/63b622224f.js" crossorigin="anonymous"></script>
-    <script src="./js/indexReadCanciones.js"></script>
-    <script src="./js/registro.js" type="module"></script>
-    <script src="./js/login.js" type="module"></script>
-    <script
-      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
-      integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
-      crossorigin="anonymous"
-    ></script>
+            <form class="container mb-5 formularioDeRegistro">
+              <div class="my-4">
+                <input type="email" class="form-control mb-2 registroEmailInput" placeholder="📧 Ingresar correo" required minlength="5" maxlength="50">
+                <input type="password" class="form-control registroPasswordInput" placeholder="🔒 Ingresar clave" required minlength="5" maxlength="50">
+              </div>
+                <button type="submit" class="btn btn-primary w-100 botonRegistro">Registrarme</button>
+            </form>
     
-  </body>
+            </div>
+          </div>     
+        </div>
+      </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.js"></script>
+  <script src="https://kit.fontawesome.com/63b622224f.js" crossorigin="anonymous"></script>
+  <script src="../js/registro.js" type="module"></script>
+  <script src="../js/login.js" type="module"></script>
+  <script src="../js/listaDeReproduccion.js"></script>
+  <script
+    src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+    crossorigin="anonymous"
+  ></script>
 </html>

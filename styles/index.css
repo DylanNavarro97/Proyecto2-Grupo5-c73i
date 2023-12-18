@@ -1,0 +1,60 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap');
+
+body{
+    font-family: Roboto;
+}
+
+
+.cancion{
+    width: 25%;
+}
+
+.cancion:hover{
+    border-bottom: solid 2px #7d2181;
+    border-radius: 5px;
+}
+
+.decoracionBusqueda{
+    border-radius: 5%;
+}
+
+.busquedaIcono{
+    font-size: 20px;
+    border: 1px solid grey;
+    border-radius: 10%;
+    color: #616161;
+}
+
+.musicaEfecto{
+    background-color: #000000AA;
+    position: relative;
+}
+
+.textoCancion{
+    color: white;
+}
+
+.imgCancionDetalle{
+    width: 15vh;
+    border: 1px #8a878a solid;
+    border-radius: 20% 0% 20% 0%;
+    margin-top: 3vh;
+}
+
+@media screen and (min-width: 768px) and (max-width: 1024px) {
+    .cancion{
+        width: 33%;
+    }
+}
+
+@media screen and (min-width: 450px) and (max-width: 767px) {
+    .cancion{
+        width: 50%;
+    }
+}
+
+@media screen and (max-width: 449px) {
+    .cancion{
+        width: 80%;
+    }
+}

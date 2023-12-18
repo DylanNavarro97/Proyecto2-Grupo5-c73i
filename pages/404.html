@@ -3,9 +3,6 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content="pagina web donde se puede ver una lista de canciones y agregar la canción que quieras como favorita, y desde el lado del admin agregar las canciones que se pueden utilizar, modificarlas y borrarlas">
-    <meta name="keywords" content="música, canciones, playlist">
-    <meta name="author" content="Dylan Navarro, Daniel Santi, Elias Juarez, Emerson Davenheimer">
     <link
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
       rel="stylesheet"
@@ -17,19 +14,18 @@
       href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.2/font/bootstrap-icons.min.css"
     />
     <link href="https://cdn.jsdelivr.net/npm/@sweetalert2/theme-dark@4/dark.css" rel="stylesheet">
-    <link rel="stylesheet" href="./styles/index.css"/>
-    <link rel="stylesheet" href="./styles/style.css"/>
-    <link rel="shortcut icon" href="./img/Ares.png" type="image/x-icon">
-    <title>Ares</title>
+    <link rel="stylesheet" href="../styles/style.css"/>
+    <link rel="stylesheet" href="../styles/modal-login.css">
+    <link rel="stylesheet" href="../styles/404.css">
+    <link rel="shortcut icon" href="../img/Ares.png" type="image/x-icon">
+    <title>Error 404</title>
   </head>
-
   <body data-bs-theme="dark">
-
     <header>
       
       <nav class="navbar navbar-expand-lg bg-body-tertiary">
         <div class="container-fluid">
-          <a class="navbar-brand" href="#">
+          <a class="navbar-brand" href="../index.html">
             <img src="../img/Ares.png" alt="Ares logo" />
           </a>
           <button
@@ -50,20 +46,20 @@
             <div class="col-12 col-lg">
               <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                 <li class="nav-item">
-                  <a class="nav-link active" aria-current="page" href="#"
+                  <a class="nav-link" aria-current="page" href="../index.html"
                     >Inicio</a>
                 </li>
 
                 <li class="nav-item">
-                  <a class="nav-link" href="./pages/nosotros.html">Sobre nosotros</a>
+                  <a class="nav-link" href="../pages/nosotros.html">Sobre nosotros</a>
                 </li>
 
                 <li class="nav-item">
-                  <a class="nav-link" href="./pages/listaDeReproduccion.html">Playlist</a>
+                  <a class="nav-link" href="../pages/listaDeReproduccion.html">Playlist</a>
                 </li>
 
                 <li class="nav-item">
-                  <a class="nav-link administrar-link d-none" href="./pages/admin.html">Administrar</a>
+                  <a class="nav-link administrar-link d-none" href="../pages/admin.html">Administrar</a>
                 </li>
               </ul>
             </div>
@@ -74,6 +70,7 @@
                 <li class="nav-item">
                   <button
                     class="btn btn-primary btnIngresar"
+                    class="btn btn-primary btnIngresar"
                     type="button"
                     aria-expanded="false"
                     data-bs-toggle="modal" 
@@ -81,6 +78,7 @@
                   >
                     Ingreso <i class="bi bi-person-circle"></i>
                   </button>
+                  <button class="btn btn-primary btnCerrarSesion d-none">Cerrar sesión</button>
                   <button class="btn btn-primary btnCerrarSesion d-none">Cerrar sesión</button>
                 </li>
               </ul>
@@ -92,46 +90,42 @@
     </header>
 
     <main>
-      <div class="container mt-5">
-        <h2>CANCIONES</h2>
-        <p class="musicaParrafo">Acá vas a encontrar todo lo que querés escuchar.</p>
-        <nav class="navbar bg-body-tertiary mb-3">
-            <div class="container align-content-center justify-content-center">
-              <form class="d-flex" role="search" id="buscarCancion">
-                <div class="d-flex align-items-center decoracionBusqueda">
-                    <i class="fa-solid fa-music p-2 busquedaIcono mx-2"></i>
-                    <input class="form-control w-100 mx-2" type="search" placeholder="Canción" aria-label="Search" minlength="1" maxlength="100" id="inputBuscarCancion">
+        <div class="container py-3 p-md-4 mb-3">
+            <div class="row p-md-4">
+                <div class="col-12 col-lg-6 imagen">
+                    <img src="../img/404/img404.png" alt="Imagen de error 404" class="w-100 mt-3">
                 </div>
-                <button class="btn btn-outline-danger" type="submit">Buscar</button>
-              </form>
+                <div class="mt-4 mt-md-5 col-lg-6 texto">
+                    <article class="text-center">
+                        <h2 class="fw-bold">Error 404</h2>
+                        <p>No pudimos encontrar la página que estabas buscando</p>
+                        <a class="btn btn-light fw-bold" href="../index.html">Volver al inicio</a>
+                    </article>
+                </div>
             </div>
-        </nav>
-        <section>
-            <article class="d-flex p-0 flex-wrap justify-content-center justify-content-md-start" id="contenedorCanciones">
-              
-            </article>
-        </section>
-      </div>
+        </div>
     </main>
 
     <footer class="bd-footer py-4 py-md-3 mt-5 bg-body-tertiary">
       <div class="container py-4 py-md-2 px-4 px-md-3 text-body-secondary">
         <div class="row">
-          <div class="col-md-4  mb-3 mb-md-0 text-center">
-            <a class="navbar-brand" href="./index.html">
-              <img src="./img/Ares.png" alt="Ares logo" class="imgFooter" />
+          <div class="col-md-4 mb-3 mb-md-0 text-center">
+            <a class="navbar-brand" href="../index.html">
+              <img src="../img/Ares.png" alt="Ares logo" class="imgFooter" />
             </a>
             <ul class="list-unstyled small">
               <li class="mb-2">&copy; todos los derechos reservados</li>
             </ul>
           </div>
-          <div class="col-6 col-md-4 ms-lg-0  offset-lg-1 mb-3 mb-md-0 text-center">
+          <div
+            class="col-6 col-md-4 ms-lg-0 offset-lg-1 mb-3 mb-md-0 text-center"
+          >
             <h5>Enlaces</h5>
             <ul class="list-unstyled">
               <li>
                 <a
                   class="link-underline link-underline-opacity-0 link-body-emphasis link-underline-opacity-75-hover"
-                  href="./pages/nosotros.html"
+                  href="./nosotros.html"
                   >Nosotros</a
                 >
               </li>
@@ -147,137 +141,23 @@
               </li>
             </ul>
           </div>
-          <div class="col-6 col-md-4  mb-3 mb-md-0 text-center">
+          <div class="col-6 col-md-4 mb-3 mb-md-0 text-center">
             <h5>Redes</h5>
             <ul class="list-unstyled">
-              <li class="mb-2 ">
-                <a href="./pages/404.html"><i class="bi bi-whatsapp link-light fs-3 "></i></a>
-                <a href="./pages/404.html"><i class="bi bi-facebook link-light fs-3 mx-2"></i></a>
-                <a href="./pages/404.html"><i class="bi bi-twitter link-light fs-3"></i></a>
+              <li class="mb-2">
+                <a href="./404.html"><i class="bi bi-whatsapp link-light fs-3"></i></a>
+                <a href="./404.html"
+                  ><i class="bi bi-facebook link-light fs-3 mx-2"></i
+                ></a>
+                <a href="./404.html"><i class="bi bi-twitter link-light fs-3"></i></a>
               </li>
             </ul>
           </div>
         </div>
       </div>
     </footer>
-  <!-- zona modal -->
-    <div
-    class="modal fade"
-    id="modalCardDetalles"
-    tabindex="-1"
-    aria-labelledby="modalCardDetallesLabel"
-    aria-hidden="true"
-  >
-    <div class="modal-dialog">
-      <div class="modal-content marcoModal bg-black">
-        <div class="text-end m-4">
-          <button
-            type="button"
-            class="btn-close"
-            data-bs-dismiss="modal"
-            aria-label="Close"
-          ></button>
-        </div>
-        <div class="modal-body text-start">
-          <div class="card border-0">
-            <div class="d-flex justify-content-center border-0">
-              <img
-                src="https://t2.genius.com/unsafe/600x600/https://images.genius.com/aeb0f587a2db0c4956bb47c2a853d19c.953x953x1.jpg"
-                class="imgCancionDetalle bg-secondary"
-                alt="..."
-                id="imgDetalle"
-              />
-            </div>
 
-            <div class="card-body">
-              <div class="accordion" id="infoAcordion">
-                <div class="accordion-item">
-                  <h2 class="accordion-header">
-                    <button
-                      class="accordion-button"
-                      type="button"
-                      data-bs-toggle="collapse"
-                      data-bs-target="#collapseOne"
-                      aria-expanded="true"
-                      aria-controls="collapseOne"
-                    >
-                      detalles
-                    </button>
-                  </h2>
-                  <div
-                    id="collapseOne"
-                    class="accordion-collapse collapse show"
-                    data-bs-parent="#infoAcordion"
-                  >
-                    <div class="accordion-body">
-                      <ul class="list-group list-group-flush">
-                        <li
-                          class="list-group-item list-group-item-secondary"
-                          id="detalleId"
-                        >
-                          id: ui2536
-                        </li>
-                        <li
-                          class="list-group-item list-group-item-secondary"
-                          id="artistaDetalle"
-                        >
-                          Artista: Las Pastillas del abuelo
-                        </li>
-                        <li
-                          class="list-group-item list-group-item-secondary"
-                          id="cancionDetalle"
-                        >
-                          Canción: que hago yo esperando un puto as?
-                        </li>
-                        <li
-                          class="list-group-item list-group-item-secondary"
-                          id="GeneroDetalle"
-                        >
-                          Genero: Rock
-                        </li>
-                      </ul>
-                    </div>
-                  </div>
-                </div>
-                <div class="accordion-item">
-                  <h2 class="accordion-header">
-                    <button
-                      class="accordion-button collapsed"
-                      type="button"
-                      data-bs-toggle="collapse"
-                      data-bs-target="#collapseTwo"
-                      aria-expanded="false"
-                      aria-controls="collapseTwo"
-                    >
-                      Canción
-                    </button>
-                  </h2>
-                  <div
-                    id="collapseTwo"
-                    class="accordion-collapse collapse"
-                    data-bs-parent="#infoAcordion"
-                  >
-                    <div class="accordion-body text-center">
-                      <iframe
-                        src="https://www.youtube.com/embed/TWOdvluo_mc?si=c4DBPp2XElkZS1Cf"
-                        title="YouTube video player"
-                        frameborder="0"
-                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                        class="img-fluid"
-                        id="frameVideo"
-                      ></iframe>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-
-          <!-- Modal Ingreso -->
+    <!-- Modal Ingreso -->
     <div class="modal fade" id="modalDeIngreso" tabindex="-1" aria-labelledby="modalDeIngresoLabel" aria-hidden="true">
       <div class="modal-dialog modal-dialog-centered">
         <div class="modal-content">
@@ -346,12 +226,11 @@
           </div>
         </div>
     </div>
-    
+
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.js"></script>
     <script src="https://kit.fontawesome.com/63b622224f.js" crossorigin="anonymous"></script>
-    <script src="./js/indexReadCanciones.js"></script>
-    <script src="./js/registro.js" type="module"></script>
-    <script src="./js/login.js" type="module"></script>
+    <script src="../js/registro.js" type="module"></script>
+    <script src="../js/login.js" type="module"></script>
     <script
       src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
       integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"

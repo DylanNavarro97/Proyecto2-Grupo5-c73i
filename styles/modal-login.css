@@ -1,0 +1,9 @@
+@media all and (max-width: 567px){
+    .continuarIngreso {
+        font-size: 14px;
+    }
+
+    .modal {
+        min-width: 270px;
+    }
+}

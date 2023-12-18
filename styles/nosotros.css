@@ -1,0 +1,23 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap');
+
+body{
+    font-family: Roboto;
+}
+
+#fraseNosotros{
+    color: #7d2181;
+}
+
+.tarjetaNosotros{
+    background: linear-gradient(360deg, #020024 0%, #1f0020 35%, #5d0a61 100%);
+    transition: .7s;
+}
+
+.tarjetaNosotros:hover{
+    scale: 1.1;
+}
+
+.imgNosotros{
+    border-radius: 50%;
+    padding: 10px;
+}
