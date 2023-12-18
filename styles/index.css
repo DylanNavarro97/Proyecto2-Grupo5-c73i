@@ -11,6 +11,7 @@ body{
 
 .cancion:hover{
     border-bottom: solid 2px #7d2181;
+    border-radius: 5px;
 }
 
 .decoracionBusqueda{
