@@ -193,6 +193,4 @@ window.borrarCancion = (idContacto) => {
 
 formModCancion.addEventListener("submit", guardarCambios);
 formCrear.addEventListener("submit", cancionNueva);
-
-console.log(listaCancion)
 cargaInicial();
