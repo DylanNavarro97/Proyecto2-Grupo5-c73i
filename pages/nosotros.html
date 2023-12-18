@@ -358,7 +358,7 @@
       </div>
     </footer>
 
-          <!-- Modal Ingreso -->
+    <!-- Modal Ingreso -->
     <div class="modal fade" id="modalDeIngreso" tabindex="-1" aria-labelledby="modalDeIngresoLabel" aria-hidden="true">
       <div class="modal-dialog modal-dialog-centered">
         <div class="modal-content">
@@ -370,10 +370,10 @@
 
             <h4 class="text-center">Iniciar sesión</h4>
     
-            <form class="container mb-5">
+            <form class="container mb-5 formularioIngresar">
               <div class="my-4">
-                <input type="email" class="form-control mb-2" placeholder="📧 Ingresar correo" required minlength="5" maxlength="50">
-                <input type="password" class="form-control" placeholder="🔒 Ingresar clave" required minlength="5" maxlength="50">
+                <input type="email" class="form-control mb-2 ingresoEmailInput" placeholder="📧 Ingresar correo" required minlength="5" maxlength="50">
+                <input type="password" class="form-control ingresoPasswordInput" placeholder="🔒 Ingresar clave" required minlength="5" maxlength="50">
               </div>
     
               <div>
@@ -382,7 +382,10 @@
                       data-bs-target="#modalDeRegistro">Registrarme</a>
                   <a href="../pages/404.html" class="link link-primary link-underline-opacity-0">Olvidé mi clave</a>
                 </div>
-                <button type="submit" class="btn btn-primary w-100">Ingresar</button>
+                <button 
+                type="submit" 
+                class="btn btn-primary w-100"
+                >Ingresar</button>
               </div>
             </form>
     
@@ -411,10 +414,10 @@
 
               <h4 class="text-center">Registro</h4>
       
-              <form class="container mb-5">
+              <form class="container mb-5 formularioDeRegistro">
                 <div class="my-4">
-                  <input type="email" class="form-control mb-2" placeholder="📧 Ingresar correo" required minlength="5" maxlength="50">
-                  <input type="password" class="form-control" placeholder="🔒 Ingresar clave" required minlength="5" maxlength="50">
+                  <input type="email" class="form-control mb-2 registroEmailInput" placeholder="📧 Ingresar correo" required minlength="5" maxlength="50">
+                  <input type="password" class="form-control registroPasswordInput" placeholder="🔒 Ingresar clave" required minlength="5" maxlength="50">
                 </div>
                   <button type="submit" class="btn btn-primary w-100 botonRegistro">Registrarme</button>
               </form>
