@@ -11,7 +11,7 @@ for (let cancion of listaCancion) {
   const crearCard = (cancion) => {
     const contenedorCanciones = document.querySelector("#contenedorCanciones");
     contenedorCanciones.innerHTML += `
-          <div class="cancion">
+          <div class="cancion my-1 px-1">
               <div class="d-flex justify-content-end flex-column w-100 h-100 musicaEfecto">
                   <img src=${cancion.linkImg} alt="imagen de canción">
                   <div class="d-flex justify-content-between align-items-center">
