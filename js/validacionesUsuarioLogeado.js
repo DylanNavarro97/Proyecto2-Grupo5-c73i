@@ -23,5 +23,5 @@ export const redireccionSinAdmin = () => {
     }
 }
 
-// console.log(paginaActual)
+
 

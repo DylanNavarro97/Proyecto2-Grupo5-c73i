@@ -1,4 +1,4 @@
-import { verificarUsuarioAdmin, verificarUsuarioLogeado } from "./validacionesUsuarioLogeado.js";
+import { redireccionSinAdmin, verificarUsuarioAdmin, verificarUsuarioLogeado } from "./validacionesUsuarioLogeado.js";
 import { verificarEmail, verificarPassword } from "./verificacionesForm.js";
 
 const form = document.querySelector(".formularioIngresar");
@@ -145,7 +145,7 @@ if (verificarUsuarioLogeado()){
   }
 }
 
-
+redireccionSinAdmin()
 form.addEventListener("submit", realizarIngreso);
 botonIngreso.addEventListener('click', () => limpiarFormulario(form))
 botonLogOut.addEventListener("click", cerrarSesion);
