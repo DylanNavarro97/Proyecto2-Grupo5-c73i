@@ -102,6 +102,12 @@ const buscarCancion = (event) => {
     const nombreCancion = listaCancion[posicionCancion].cancion;
 
     const elementos = document.querySelectorAll("h6");
+
+    elementos.forEach((elemento) => {
+      elemento.parentNode.parentNode.parentNode.className =
+        "d-flex justify-content-end flex-column w-100 h-100 musicaEfecto";
+    });
+
     elementos.forEach((elemento) => {
       if (elemento.innerHTML.includes(nombreCancion)) {
         elemento.parentNode.parentNode.parentNode.className =
