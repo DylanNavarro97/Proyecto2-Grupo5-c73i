@@ -58,11 +58,21 @@ window.cancionFavorita = (idCancion) => {
   const posicionCancion = listaCancion.findIndex(
     (cancion) => cancion.id === idCancion
   );
-  listaReproduccionCancion.push(listaCancion[posicionCancion])
-  guardarEnLocalstorage();
-
-  Swal.fire({
-    title: "La canción fue agregada con exito a la lista de reproducción",
-    icon: "success"
-  });
+  const existe = listaReproduccionCancion.findIndex(
+    (cancion) => cancion.id === idCancion
+  );
+  if(existe !== -1){
+    Swal.fire({
+      title: "La canción ya se encuentra agregada a la lista de reproducción",
+      icon: ""
+    });
+  }else{
+    listaReproduccionCancion.push(listaCancion[posicionCancion])
+    guardarEnLocalstorage();
+  
+    Swal.fire({
+      title: "La canción fue agregada con exito a la lista de reproducción",
+      icon: "success"
+    });
+  }
 }
