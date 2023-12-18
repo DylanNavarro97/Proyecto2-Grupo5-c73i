@@ -28,12 +28,13 @@ Lo necesario para hacer correr el proyecto es clonarlo
 
 Si te interesa ver nuestra pagina funcionando pueder hacer click en el siguiente link
 
-→
+→ https://ares-original-grupo5.netlify.app/
 
 
 ## Librerias
 
 - [Bootstrap](https://getbootstrap.com/)
+- [sweetAlert2](https://sweetalert2.github.io/recipe-gallery/)
 
 
 
