@@ -3,6 +3,9 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="pagina web donde se puede ver una lista de canciones y agregar la canción que quieras como favorita, y desde el lado del admin agregar las canciones que se pueden utilizar, modificarlas y borrarlas">
+    <meta name="keywords" content="música, canciones, playlist">
+    <meta name="author" content="Dylan Navarro, Daniel Santi, Elias Juarez, Emerson Davenheimer">
     <link
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
       rel="stylesheet"
@@ -16,6 +19,7 @@
     <link href="https://cdn.jsdelivr.net/npm/@sweetalert2/theme-dark@4/dark.css" rel="stylesheet">
     <link rel="stylesheet" href="./styles/index.css"/>
     <link rel="stylesheet" href="./styles/style.css"/>
+    <link rel="shortcut icon" href="./img/Ares.png" type="image/x-icon">
     <title>Ares</title>
   </head>
 
@@ -47,12 +51,19 @@
               <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                 <li class="nav-item">
                   <a class="nav-link active" aria-current="page" href="#"
-                    >Inicio</a
-                  >
+                    >Inicio</a>
                 </li>
 
                 <li class="nav-item">
                   <a class="nav-link" href="./pages/nosotros.html">Sobre nosotros</a>
+                </li>
+
+                <li class="nav-item">
+                  <a class="nav-link" href="./pages/listaDeReproduccion.html">Playlist</a>
+                </li>
+
+                <li class="nav-item">
+                  <a class="nav-link administrar-link d-none" href="./pages/admin.html">Administrar</a>
                 </li>
               </ul>
             </div>
@@ -86,7 +97,7 @@
         <p class="musicaParrafo">Acá vas a encontrar todo lo que querés escuchar.</p>
         <nav class="navbar bg-body-tertiary mb-3">
             <div class="container align-content-center justify-content-center">
-              <form class="d-flex " role="search" id="buscarCanción">
+              <form class="d-flex" role="search" id="buscarCancion">
                 <div class="d-flex align-items-center decoracionBusqueda">
                     <i class="fa-solid fa-music p-2 busquedaIcono mx-2"></i>
                     <input class="form-control w-100 mx-2" type="search" placeholder="Canción" aria-label="Search" minlength="1" maxlength="100" id="inputBuscarCancion">
@@ -107,7 +118,7 @@
       <div class="container py-4 py-md-2 px-4 px-md-3 text-body-secondary">
         <div class="row">
           <div class="col-md-4  mb-3 mb-md-0 text-center">
-            <a class="navbar-brand" href="#">
+            <a class="navbar-brand" href="./index.html">
               <img src="./img/Ares.png" alt="Ares logo" class="imgFooter" />
             </a>
             <ul class="list-unstyled small">
@@ -120,14 +131,17 @@
               <li>
                 <a
                   class="link-underline link-underline-opacity-0 link-body-emphasis link-underline-opacity-75-hover"
-                  href="#"
+                  href="./pages/nosotros.html"
                   >Nosotros</a
                 >
               </li>
               <li>
                 <a
                   class="link-underline link-underline-opacity-0 link-body-emphasis link-underline-opacity-75-hover"
-                  href="#"
+                  href="#modalDeRegistro"
+                  aria-expanded="false"
+                  data-bs-toggle="modal" 
+                  data-bs-target="#modalDeRegistro"
                   >Registro</a
                 >
               </li>
@@ -335,8 +349,8 @@
     
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.js"></script>
     <script src="https://kit.fontawesome.com/63b622224f.js" crossorigin="anonymous"></script>
-    <script src="./js/registro.js" type="module"></script>
     <script src="./js/indexReadCanciones.js"></script>
+    <script src="./js/registro.js" type="module"></script>
     <script src="./js/login.js" type="module"></script>
     <script
       src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"

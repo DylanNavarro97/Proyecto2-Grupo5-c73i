@@ -1,8 +1,10 @@
+import { redireccionSinAdmin, verificarUsuarioAdmin, verificarUsuarioLogeado } from "./validacionesUsuarioLogeado.js";
 import { verificarEmail, verificarPassword } from "./verificacionesForm.js";
 
 const form = document.querySelector(".formularioIngresar");
 const botonLogOut = document.querySelector(".btnCerrarSesion");
 const botonIngreso = document.querySelector(".btnIngresar");
+const linkAdmin = document.querySelector('.administrar-link')
 
 const realizarIngreso = (e) => {
   e.preventDefault();
@@ -38,7 +40,7 @@ const compararEmailConUsuarios = (email, usuarios) => {
       alertaSwalEmailIncorrecto()
     }
   } else {
-    alert("No existe el usuario");
+    alertaSwalEmailIncorrecto()
   }
 };
 
@@ -64,6 +66,14 @@ const esconderBotonCerrarSesion = () => {
   botonLogOut.className = "btn btn-primary btnCerrarSesion d-none";
   botonIngreso.className = "btn btn-primary btnIngresar";
 };
+
+const esconderLinkAdmin = () => {
+  linkAdmin.className = "nav-link administrar-link d-none"
+}
+
+const mostrarLinkAdmin = () => {
+  linkAdmin.className = "nav-link administrar-link"
+}
 
 const guardarUserEnLocalStorage = (usuario) => {
   localStorage.setItem("usuarioLogeado", JSON.stringify(usuario));
@@ -126,5 +136,16 @@ const alertaSwalContraseñaIncorrecta = () => {
   });
 }
 
+if (verificarUsuarioLogeado()){
+  esconderBotonIngreso()
+  if (verificarUsuarioAdmin()){
+    mostrarLinkAdmin()
+  } else {
+    esconderLinkAdmin()
+  }
+}
+
+redireccionSinAdmin()
 form.addEventListener("submit", realizarIngreso);
+botonIngreso.addEventListener('click', () => limpiarFormulario(form))
 botonLogOut.addEventListener("click", cerrarSesion);

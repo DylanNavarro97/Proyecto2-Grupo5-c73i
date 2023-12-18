@@ -7,14 +7,15 @@ const artistaDetalle = document.querySelector("#artistaDetalle");
 const cancionDetalle = document.querySelector("#cancionDetalle");
 const imgDetalle = document.querySelector("#imgDetalle");
 const GeneroDetalle = document.querySelector("#GeneroDetalle");
-const formBuscarCancion = document.querySelector("#buscarCanción");
+const formBuscarCancion = document.querySelector("#buscarCancion");
 const inputBuscarCancion = document.querySelector("#inputBuscarCancion");
 
 for (let cancion of listaCancion) {
   const crearCard = (cancion) => {
     const contenedorCanciones = document.querySelector("#contenedorCanciones");
     contenedorCanciones.innerHTML += `
-          <div class="cancion" id="${cancion.cancion}">
+
+          <div class="cancion my-1 px-1" id="${cancion.cancion}">
               <div class="d-flex justify-content-end flex-column w-100 h-100 musicaEfecto">
                   <img src=${cancion.linkImg} alt="imagen de canción">
                   <div class="d-flex justify-content-between align-items-center">
@@ -64,33 +65,49 @@ window.cancionFavorita = (idCancion) => {
   const posicionCancion = listaCancion.findIndex(
     (cancion) => cancion.id === idCancion
   );
-  listaReproduccionCancion.push(listaCancion[posicionCancion]);
-  guardarEnLocalstorage();
+  const existe = listaReproduccionCancion.findIndex(
+    (cancion) => cancion.id === idCancion
+  );
+  if (existe !== -1) {
+    Swal.fire({
+      title: "La canción ya se encuentra agregada a la lista de reproducción",
+      icon: "",
+    });
+  } else {
+    listaReproduccionCancion.push(listaCancion[posicionCancion]);
+    guardarEnLocalstorage();
 
-  Swal.fire({
-    title: "La canción fue agregada con exito a la lista de reproducción",
-    icon: "success",
-  });
+    Swal.fire({
+      title: "La canción fue agregada con exito a la lista de reproducción",
+      icon: "success",
+    });
+  }
 };
 
-const buscarCancion = (e) => {
-  e.preventDefault();
+const buscarCancion = (event) => {
+  event.preventDefault();
+  const inputBuscarCancion = document.querySelector("#inputBuscarCancion");
+
   const nombre = inputBuscarCancion.value;
   const posicionCancion = listaCancion.findIndex(
-    (cancion) => cancion.cancion == `${nombre}`
+    (cancion) => cancion.cancion.toLowerCase() == `${nombre.toLowerCase()}`
   );
-  if (posicionCancion == -1) {
+
+  if (posicionCancion === -1) {
+
     Swal.fire({
       text: `La cancion que buscas no está en nuestro sistema D:`,
       background: "#1B2631",
       color: "#fff",
     });
   } else {
+
     const sombraCancion = document.querySelector(
       `#${listaCancion[posicionCancion].cancion}`
     );
     sombraCancion.className += " border border-warning ";
     console.log(sombraCancion);
+
   }
 };
 
