@@ -15,3 +15,13 @@ export const verificarUsuarioAdmin = () => {
     }
 }
 
+export const redireccionSinAdmin = () => {
+    var paginaActual = window.location.href;
+
+    if (!verificarUsuarioAdmin() && paginaActual.includes("admin.html")){
+        window.location.href = "404.html";
+    }
+}
+
+// console.log(paginaActual)
+

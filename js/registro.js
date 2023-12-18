@@ -10,7 +10,6 @@ const crearUsuario = (e) => {
 
   usuarios = JSON.parse(localStorage.getItem("usuarios")) || [];
   const inputEmail = document.querySelector(".registroEmailInput").value;
-  console.log(inputEmail);
   const inputPassword = document.querySelector(".registroPasswordInput").value;
 
   verificarFormRegistro(inputEmail, inputPassword);

@@ -5,12 +5,6 @@ const form = document.querySelector(".formularioIngresar");
 const botonLogOut = document.querySelector(".btnCerrarSesion");
 const botonIngreso = document.querySelector(".btnIngresar");
 const linkAdmin = document.querySelector('.administrar-link')
-var paginaActual = window.location.href;
-// console.log(paginaActual)
-// if (paginaActual.includes("index.html")) {
-//   // Redirigir a otra página
-//   window.location.href = "otra_pagina.html";
-// }
 
 const realizarIngreso = (e) => {
   e.preventDefault();
