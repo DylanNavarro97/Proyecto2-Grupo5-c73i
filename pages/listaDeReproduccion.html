@@ -23,6 +23,7 @@
     />
     <link rel="stylesheet" href="../styles/style.css" />
     <link rel="stylesheet" href="../styles/admin.css" />
+    <link rel="stylesheet" href="../styles/index.css">
     <title>Ares</title>
   </head>
   <body data-bs-theme="dark">
@@ -159,191 +160,6 @@
     </footer>
   </body>
   <!-- zona modal -->
-  <div
-    class="modal fade"
-    id="modalAgregarCancion"
-    tabindex="-1"
-    aria-labelledby="modalAgregarCancionLabel"
-    aria-hidden="true"
-  >
-    <div class="modal-dialog">
-      <div class="modal-content marcoModal bg-black">
-        <div class="modal-header">
-          <h2
-            class="modal-title fs-5 text-center"
-            id="modalAgregarCancionLabel"
-          >
-            Cargar Canción
-          </h2>
-          <button
-            type="button"
-            class="btn-close"
-            data-bs-dismiss="modal"
-            aria-label="Close"
-          ></button>
-        </div>
-        <div class="modal-body text-center">
-          <form>
-            <div class="mb-3">
-              <label for="artistaInput" class="form-label">Artista</label>
-              <input
-                type="text"
-                class="form-control"
-                id="artistainput"
-                aria-describedby="emailHelp"
-                minlength="2"
-                maxlength="30"
-                required
-              />
-            </div>
-            <div class="mb-3">
-              <label for="cancionInput" class="form-label">Canción</label>
-              <input
-                type="text"
-                class="form-control"
-                id="cancionInput"
-                minlength="2"
-                maxlength="50"
-                required
-              />
-            </div>
-            <div class="mb-3">
-              <label for="cancionInput" class="form-label">Genero</label>
-              <input
-                type="text"
-                class="form-control"
-                id="cancionInput"
-                minlength="2"
-                maxlength="50"
-                required
-              />
-            </div>
-            <div class="mb-3">
-              <label for="imgInput" class="form-label">link imagen</label>
-              <input
-                type="url"
-                class="form-control"
-                id="imgInput"
-                minlength="1"
-                maxlength="2000"
-                required
-              />
-            </div>
-            <div class="mb-3">
-              <label for="cancionInput" class="form-label">link Canción</label>
-              <input
-                type="url"
-                class="form-control"
-                id="cancionInput"
-                minlength="1"
-                maxlength="2000"
-                required
-              />
-            </div>
-            <button
-              type="submit"
-              class="btn btn-outline-success btnsubmit w-75"
-            >
-              <i class="bi bi-floppy"></i> Guardar
-            </button>
-          </form>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <div
-    class="modal fade"
-    id="modalModificarCancion"
-    tabindex="-1"
-    aria-labelledby="modalModificarCancionLabel"
-    aria-hidden="true"
-  >
-    <div class="modal-dialog">
-      <div class="modal-content marcoModal bg-black">
-        <div class="modal-header">
-          <h2
-            class="modal-title fs-5 text-center"
-            id="modalModificarCancionLabel"
-          >
-            Modificar Canción
-          </h2>
-          <button
-            type="button"
-            class="btn-close"
-            data-bs-dismiss="modal"
-            aria-label="Close"
-          ></button>
-        </div>
-        <div class="modal-body text-center">
-          <form>
-            <div class="mb-3">
-              <label for="artistaInput" class="form-label">Artista</label>
-              <input
-                type="text"
-                class="form-control"
-                id="artistainput"
-                aria-describedby="emailHelp"
-                minlength="2"
-                maxlength="30"
-                required
-              />
-            </div>
-            <div class="mb-3">
-              <label for="cancionInput" class="form-label">Canción</label>
-              <input
-                type="text"
-                class="form-control"
-                id="cancionInput"
-                minlength="2"
-                maxlength="50"
-                required
-              />
-            </div>
-            <div class="mb-3">
-              <label for="cancionInput" class="form-label">Genero</label>
-              <input
-                type="text"
-                class="form-control"
-                id="cancionInput"
-                minlength="2"
-                maxlength="50"
-                required
-              />
-            </div>
-            <div class="mb-3">
-              <label for="imgInput" class="form-label">link imagen</label>
-              <input
-                type="url"
-                class="form-control"
-                id="imgInput"
-                minlength="1"
-                maxlength="2000"
-                required
-              />
-            </div>
-            <div class="mb-3">
-              <label for="cancionInput" class="form-label">link Canción</label>
-              <input
-                type="url"
-                class="form-control"
-                id="cancionInput"
-                minlength="1"
-                maxlength="2000"
-                required
-              />
-            </div>
-            <button
-              type="submit"
-              class="btn btn-outline-success btnsubmit w-75"
-            >
-              <i class="bi bi-floppy"></i> Guardar
-            </button>
-          </form>
-        </div>
-      </div>
-    </div>
-  </div>
 
   <div
     class="modal fade"
@@ -366,14 +182,15 @@
           <div class="card border-0">
             <div class="d-flex justify-content-center border-0">
               <img
-                src="https://th.bing.com/th?id=OSK.17763a99b1afb53b2a9fe5e078982ea0&w=116&h=116&c=7&o=6&pid=SANGAM"
+                src="https://t2.genius.com/unsafe/600x600/https://images.genius.com/aeb0f587a2db0c4956bb47c2a853d19c.953x953x1.jpg"
                 class="imgCancionDetalle bg-secondary"
                 alt="..."
+                id="imgDetalle"
               />
             </div>
 
             <div class="card-body">
-              <div class="accordion" id="accordionExample">
+              <div class="accordion" id="infoAcordion">
                 <div class="accordion-item">
                   <h2 class="accordion-header">
                     <button
@@ -390,21 +207,33 @@
                   <div
                     id="collapseOne"
                     class="accordion-collapse collapse show"
-                    data-bs-parent="#accordionExample"
+                    data-bs-parent="#infoAcordion"
                   >
                     <div class="accordion-body">
                       <ul class="list-group list-group-flush">
-                        <li class="list-group-item list-group-item-secondary">
+                        <li
+                          class="list-group-item list-group-item-secondary"
+                          id="detalleId"
+                        >
                           id: ui2536
                         </li>
-                        <li class="list-group-item list-group-item-secondary">
-                          Artista: Karil
+                        <li
+                          class="list-group-item list-group-item-secondary"
+                          id="artistaDetalle"
+                        >
+                          Artista: Las Pastillas del abuelo
                         </li>
-                        <li class="list-group-item list-group-item-secondary">
-                          Canción: Caballo homosexual de las Montañas
+                        <li
+                          class="list-group-item list-group-item-secondary"
+                          id="cancionDetalle"
+                        >
+                          Canción: que hago yo esperando un puto as?
                         </li>
-                        <li class="list-group-item list-group-item-secondary">
-                          Genero: Rock Alternativo
+                        <li
+                          class="list-group-item list-group-item-secondary"
+                          id="GeneroDetalle"
+                        >
+                          Genero: Rock
                         </li>
                       </ul>
                     </div>
@@ -424,17 +253,18 @@
                     </button>
                   </h2>
                   <div
-                    id=" collapseTwo "
+                    id="collapseTwo"
                     class="accordion-collapse collapse"
-                    data-bs-parent="#accordionExample"
+                    data-bs-parent="#infoAcordion"
                   >
                     <div class="accordion-body text-center">
                       <iframe
-                        src="https://www.youtube.com/embed/hMS8RtYVouc?si=sZWSJsymOTMsahJa"
+                        src="https://www.youtube.com/embed/TWOdvluo_mc?si=c4DBPp2XElkZS1Cf"
                         title="YouTube video player"
                         frameborder="0"
                         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                         class="img-fluid"
+                        id="frameVideo"
                       ></iframe>
                     </div>
                   </div>
@@ -547,6 +377,7 @@
   <script src="https://kit.fontawesome.com/63b622224f.js" crossorigin="anonymous"></script>
   <script src="../js/registro.js" type="module"></script>
   <script src="../js/login.js" type="module"></script>
+  <script src="../js/listaDeReproduccion.js"></script>
   <script
     src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"

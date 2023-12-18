@@ -6,6 +6,7 @@ const cancionDetalle = document.querySelector("#cancionDetalle");
 const imgDetalle = document.querySelector("#imgDetalle");
 const GeneroDetalle = document.querySelector("#GeneroDetalle");
 
+
 const crearCard = (cancion) => {
   const contenedorCanciones = document.querySelector("#contenedorCanciones");
   contenedorCanciones.innerHTML += `
@@ -19,13 +20,23 @@ const crearCard = (cancion) => {
                     </div>
                     <div class="d-flex flex-column">
                         <button class="btn border-0 btnPlay p-1" data-bs-toggle="modal" data-bs-target="#modalCardDetalles" onclick="detalleCancion('${cancion.id}')"><i class="bi bi-play-fill w-100 fs-2"></i></button>
-                        <button class="btn btn-outline-danger" onclick="borrarCancion('${cancion.id}')"><i class="bi bi-trash iconosBtn"></i></button>
+                        <button class="btn btn-outline-danger p-1 m-1" onclick="borrarCancion('${cancion.id}')"><i class="bi bi-trash iconosBtn fs-6"></i></button>
                     </div>
                 </div>
             </div>
         </div>
         `;
-};
+    };
+
+    const cargaInicial = () => {
+        if (listaReproduccionCancion.length >= 0) {
+          listaReproduccionCancion.map((cancion) => crearCard(cancion));
+        }
+      };
+
+      const guardarEnLocalstorage = () => {
+        localStorage.setItem("listaReproduccionCancionKey", JSON.stringify(listaReproduccionCancion));
+      };
 
 window.detalleCancion = (idCancion) => {
     const posicionCancion = listaReproduccionCancion.findIndex(
@@ -46,8 +57,29 @@ window.detalleCancion = (idCancion) => {
     videoDetalle.setAttribute("src", link.toString());
   };
 
-  const cargaInicial = () => {
-    if (listaCancion.length >= 0) {
-      listaCancion.map((cancion) => crearCard(cancion));
+
+
+window.borrarCancion = (idContacto) => {
+    Swal.fire({
+    text: "¿Estas seguro de eliminar la cancion?",
+    background: '#1B2631',
+    color: '#fff  ',
+    showCancelButton: true,
+    confirmButtonColor: "#C2224B",
+    cancelButtonColor: "#11CC2D",
+    confirmButtonText: "Eliminar",
+    cancelButtonText: "Cancelar",
+    }).then((result) => {
+    if(result.isConfirmed) {
+    const posicionCancion = listaReproduccionCancion.findIndex(
+        (cancion) => cancion.id === idContacto
+    );
+    listaReproduccionCancion.splice(posicionCancion, 1);
+    guardarEnLocalstorage();
+    location.reload();
+    cargaInicial();
     }
-  };
+    })
+}
+
+cargaInicial();
