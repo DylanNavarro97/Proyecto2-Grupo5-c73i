@@ -20,6 +20,5 @@ header div a img{
 @media all and (max-width: 767px){
     header div a img{
         margin-left: 10px;
-        /* width: 50px; */
     }
 }
