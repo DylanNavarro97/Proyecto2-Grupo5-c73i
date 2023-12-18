@@ -1,4 +1,5 @@
-class Cancion{
+
+export default class Cancion{
     #id;
     #banda;
     #nombreCancion;
@@ -7,7 +8,7 @@ class Cancion{
     #linkCancion;
     
     constructor (id,banda,nombreCancion,categoria,img,linkCancion){
-        this.id=id;
+        this.#id=id;
         this.#banda=banda;
         this.#nombreCancion=nombreCancion;
         this.#categoria=categoria;
@@ -52,7 +53,7 @@ class Cancion{
 
     toJSON(){
         return {
-          id: this.id,
+          id: this.#id,
           banda: this.#banda,
           cancion: this.#nombreCancion,
           categoria: this.#categoria,

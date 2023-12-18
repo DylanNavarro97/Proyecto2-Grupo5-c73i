@@ -13,16 +13,20 @@
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.2/font/bootstrap-icons.min.css"
     />
-    <link rel="stylesheet" href="./styles/style.css" />
+    <link href="https://cdn.jsdelivr.net/npm/@sweetalert2/theme-dark@4/dark.css" rel="stylesheet">
+    <link rel="stylesheet" href="./styles/index.css"/>
+    <link rel="stylesheet" href="./styles/style.css"/>
     <title>Ares</title>
   </head>
+
   <body data-bs-theme="dark">
+
     <header>
       
       <nav class="navbar navbar-expand-lg bg-body-tertiary">
         <div class="container-fluid">
           <a class="navbar-brand" href="#">
-            <img src="./img/Ares.png" alt="Ares logo" />
+            <img src="../img/Ares.png" alt="Ares logo" />
           </a>
           <button
             class="navbar-toggler"
@@ -43,43 +47,37 @@
               <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                 <li class="nav-item">
                   <a class="nav-link active" aria-current="page" href="#"
-                    >Inicio</a
-                  >
+                    >Inicio</a>
                 </li>
 
                 <li class="nav-item">
-                  <a class="nav-link" href="#">Sobre nosotros</a>
+                  <a class="nav-link" href="./pages/nosotros.html">Sobre nosotros</a>
+                </li>
+
+                <li class="nav-item">
+                  <a class="nav-link" href="./pages/listaDeReproduccion.html">Playlist</a>
+                </li>
+
+                <li class="nav-item">
+                  <a class="nav-link administrar-link d-none" href="./pages/admin.html">Administrar</a>
                 </li>
               </ul>
             </div>
-
-            <div class="col-12 col-lg mb-3 m-lg-0">
-              <form class="d-flex" role="search">
-                <input
-                  class="form-control me-2"
-                  type="search"
-                  placeholder="Search"
-                  aria-label="Search"
-                />
-                <button class="btn btn-outline-success" type="submit">
-                  Search
-                </button>
-              </form>
-            </div>
-
             <div
               class="col-12 col-lg d-flex justify-content-center justify-content-lg-end"
             >
               <ul class="navbar-nav">
                 <li class="nav-item">
-                  <a
-                    class="btn btn-primary"
-                    href="#"
-                    role="button"
+                  <button
+                    class="btn btn-primary btnIngresar"
+                    type="button"
                     aria-expanded="false"
+                    data-bs-toggle="modal" 
+                    data-bs-target="#modalDeIngreso"
                   >
                     Ingreso <i class="bi bi-person-circle"></i>
-                  </a>
+                  </button>
+                  <button class="btn btn-primary btnCerrarSesion d-none">Cerrar sesión</button>
                 </li>
               </ul>
             </div>
@@ -89,13 +87,27 @@
        
     </header>
 
-    <main></main>
-
-
-
-
-  
-
+    <main>
+      <div class="container mt-5">
+        <h2>CANCIONES</h2>
+        <p class="musicaParrafo">Acá vas a encontrar todo lo que querés escuchar.</p>
+        <nav class="navbar bg-body-tertiary mb-3">
+            <div class="container-fluid">
+              <form class="d-flex" role="search">
+                <div class="d-flex align-items-center decoracionBusqueda">
+                    <i class="fa-solid fa-music p-2 busquedaIcono"></i><input class="form-control me-2" type="search" placeholder="Canción" aria-label="Search">
+                </div>
+                <button class="btn btn-outline-danger" type="submit">Buscar</button>
+              </form>
+            </div>
+        </nav>
+        <section>
+            <article class="d-flex p-0 flex-wrap justify-content-center justify-content-md-start" id="contenedorCanciones">
+              
+            </article>
+        </section>
+      </div>
+    </main>
 
     <footer class="bd-footer py-4 py-md-3 mt-5 bg-body-tertiary">
       <div class="container py-4 py-md-2 px-4 px-md-3 text-body-secondary">
@@ -140,7 +152,198 @@
         </div>
       </div>
     </footer>
+  <!-- zona modal -->
+    <div
+    class="modal fade"
+    id="modalCardDetalles"
+    tabindex="-1"
+    aria-labelledby="modalCardDetallesLabel"
+    aria-hidden="true"
+  >
+    <div class="modal-dialog">
+      <div class="modal-content marcoModal bg-black">
+        <div class="text-end m-4">
+          <button
+            type="button"
+            class="btn-close"
+            data-bs-dismiss="modal"
+            aria-label="Close"
+          ></button>
+        </div>
+        <div class="modal-body text-start">
+          <div class="card border-0">
+            <div class="d-flex justify-content-center border-0">
+              <img
+                src="https://t2.genius.com/unsafe/600x600/https://images.genius.com/aeb0f587a2db0c4956bb47c2a853d19c.953x953x1.jpg"
+                class="imgCancionDetalle bg-secondary"
+                alt="..."
+                id="imgDetalle"
+              />
+            </div>
 
+            <div class="card-body">
+              <div class="accordion" id="infoAcordion">
+                <div class="accordion-item">
+                  <h2 class="accordion-header">
+                    <button
+                      class="accordion-button"
+                      type="button"
+                      data-bs-toggle="collapse"
+                      data-bs-target="#collapseOne"
+                      aria-expanded="true"
+                      aria-controls="collapseOne"
+                    >
+                      detalles
+                    </button>
+                  </h2>
+                  <div
+                    id="collapseOne"
+                    class="accordion-collapse collapse show"
+                    data-bs-parent="#infoAcordion"
+                  >
+                    <div class="accordion-body">
+                      <ul class="list-group list-group-flush">
+                        <li
+                          class="list-group-item list-group-item-secondary"
+                          id="detalleId"
+                        >
+                          id: ui2536
+                        </li>
+                        <li
+                          class="list-group-item list-group-item-secondary"
+                          id="artistaDetalle"
+                        >
+                          Artista: Las Pastillas del abuelo
+                        </li>
+                        <li
+                          class="list-group-item list-group-item-secondary"
+                          id="cancionDetalle"
+                        >
+                          Canción: que hago yo esperando un puto as?
+                        </li>
+                        <li
+                          class="list-group-item list-group-item-secondary"
+                          id="GeneroDetalle"
+                        >
+                          Genero: Rock
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+                <div class="accordion-item">
+                  <h2 class="accordion-header">
+                    <button
+                      class="accordion-button collapsed"
+                      type="button"
+                      data-bs-toggle="collapse"
+                      data-bs-target="#collapseTwo"
+                      aria-expanded="false"
+                      aria-controls="collapseTwo"
+                    >
+                      Canción
+                    </button>
+                  </h2>
+                  <div
+                    id="collapseTwo"
+                    class="accordion-collapse collapse"
+                    data-bs-parent="#infoAcordion"
+                  >
+                    <div class="accordion-body text-center">
+                      <iframe
+                        src="https://www.youtube.com/embed/TWOdvluo_mc?si=c4DBPp2XElkZS1Cf"
+                        title="YouTube video player"
+                        frameborder="0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                        class="img-fluid"
+                        id="frameVideo"
+                      ></iframe>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+          <!-- Modal Ingreso -->
+    <div class="modal fade" id="modalDeIngreso" tabindex="-1" aria-labelledby="modalDeIngresoLabel" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+
+          <div class="modal-body">
+            <div class="d-flex justify-content-end p-1">
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+
+            <h4 class="text-center">Iniciar sesión</h4>
+    
+            <form class="container mb-5 formularioIngresar">
+              <div class="my-4">
+                <input type="email" class="form-control mb-2 ingresoEmailInput" placeholder="📧 Ingresar correo" required minlength="5" maxlength="50">
+                <input type="password" class="form-control ingresoPasswordInput" placeholder="🔒 Ingresar clave" required minlength="5" maxlength="50">
+              </div>
+    
+              <div>
+                <div class="d-flex justify-content-between">
+                  <a href="#" class="link link-primary link-underline-opacity-0" data-bs-toggle="modal" 
+                      data-bs-target="#modalDeRegistro">Registrarme</a>
+                  <a href="../pages/404.html" class="link link-primary link-underline-opacity-0">Olvidé mi clave</a>
+                </div>
+                <button 
+                type="submit" 
+                class="btn btn-primary w-100"
+                >Ingresar</button>
+              </div>
+            </form>
+    
+            <h4 class="text-center">- Iniciar sesión con -</h4>
+            <div class="d-flex justify-content-center">
+              <div class="w-75">
+                <a class="btn btn-primary mb-3 w-100 continuarIngreso" href="../pages/404.html"><i class="bi bi-facebook me-1"></i>Continuar con Facebook</a>
+                <a class="btn btn-primary w-100 continuarIngreso" href="../pages/404.html"><i class="bi bi-instagram me-1"></i>Continuar con Instagram</a>
+              </div>
+            </div>
+          </div>
+              
+        </div>
+      </div>
+    </div>
+    
+        <!-- Modal Registro -->
+    <div class="modal fade" id="modalDeRegistro" tabindex="-1" aria-labelledby="modalDeRegistroLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+          <div class="modal-content">
+            <div class="modal-body">
+
+              <div class="d-flex justify-content-end p-1">
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+              </div>
+
+              <h4 class="text-center">Registro</h4>
+      
+              <form class="container mb-5 formularioDeRegistro">
+                <div class="my-4">
+                  <input type="email" class="form-control mb-2 registroEmailInput" placeholder="📧 Ingresar correo" required minlength="5" maxlength="50">
+                  <input type="password" class="form-control registroPasswordInput" placeholder="🔒 Ingresar clave" required minlength="5" maxlength="50">
+                </div>
+                  <button type="submit" class="btn btn-primary w-100 botonRegistro">Registrarme</button>
+              </form>
+      
+              </div>
+            </div>     
+          </div>
+        </div>
+    </div>
+    
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.js"></script>
+    <script src="https://kit.fontawesome.com/63b622224f.js" crossorigin="anonymous"></script>
+    <script src="./js/indexReadCanciones.js"></script>
+    <script src="./js/registro.js" type="module"></script>
+    <script src="./js/login.js" type="module"></script>
     <script
       src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
       integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"

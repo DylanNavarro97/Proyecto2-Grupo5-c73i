@@ -13,15 +13,18 @@
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.2/font/bootstrap-icons.min.css"
     />
+    <link href="https://cdn.jsdelivr.net/npm/@sweetalert2/theme-dark@4/dark.css" rel="stylesheet">
+
     <link rel="stylesheet" href="../styles/style.css" />
     <link rel="stylesheet" href="../styles/nosotros.css" />
     <title>Ares</title>
   </head>
   <body data-bs-theme="dark">
     <header>
+      
       <nav class="navbar navbar-expand-lg bg-body-tertiary">
         <div class="container-fluid">
-          <a class="navbar-brand" href="#">
+          <a class="navbar-brand" href="../index.html">
             <img src="../img/Ares.png" alt="Ares logo" />
           </a>
           <button
@@ -42,53 +45,46 @@
             <div class="col-12 col-lg">
               <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                 <li class="nav-item">
-                  <a class="nav-link" href="../index.html">Inicio</a>
+                  <a class="nav-link" aria-current="page" href="../index.html"
+                    >Inicio</a>
                 </li>
 
                 <li class="nav-item">
-                  <a
-                    class="nav-link active"
-                    aria-current="page"
-                    href="./nosotros.html"
-                    >Sobre nosotros</a
-                  >
+                  <a class="nav-link" href="../pages/nosotros.html">Sobre nosotros</a>
+                </li>
+
+                <li class="nav-item">
+                  <a class="nav-link" href="../pages/listaDeReproduccion.html">Playlist</a>
+                </li>
+
+                <li class="nav-item">
+                  <a class="nav-link administrar-link d-none" href="../pages/admin.html">Administrar</a>
                 </li>
               </ul>
             </div>
-
-            <div class="col-12 col-lg mb-3 m-lg-0">
-              <form class="d-flex" role="search">
-                <input
-                  class="form-control me-2"
-                  type="search"
-                  placeholder="Search"
-                  aria-label="Search"
-                />
-                <button class="btn btn-outline-success" type="submit">
-                  Search
-                </button>
-              </form>
-            </div>
-
             <div
               class="col-12 col-lg d-flex justify-content-center justify-content-lg-end"
             >
               <ul class="navbar-nav">
                 <li class="nav-item">
-                  <a
-                    class="btn btn-primary"
-                    href="#"
-                    role="button"
+                  <button
+                    class="btn btn-primary btnIngresar"
+                    type="button"
                     aria-expanded="false"
+                    data-bs-toggle="modal" 
+                    data-bs-target="#modalDeIngreso"
                   >
-                    <i class="bi bi-person-circle"></i> Ingreso
-                  </a>
+                    Ingreso <i class="bi bi-person-circle"></i>
+                  </button>
+                  <button class="btn btn-primary btnCerrarSesion d-none">Cerrar sesión</button>
+                  <button class="btn btn-primary btnCerrarSesion d-none">Cerrar sesión</button>
                 </li>
               </ul>
             </div>
           </div>
         </div>
       </nav>
+       
     </header>
 
     <main>
@@ -100,14 +96,14 @@
           El equipo de desarrollo de la página web está conformado por un grupo entusiasta de estudiantes, los cuales colaboran para aprender y aplicar sus conocimientos en el emocionante proyecto de crear una página web. 
         </p>
         <article class="my-3 p-3 p-md-4 rounded row">
-          <div class="col-md-6 col-lg-4 mb-3">
+          <div class="col-md-6 col-lg-3 mb-4">
             <div class="card tarjetaNosotros">
               <img
                 src="../img/dylan.jpg"
                 class="img-fluid imgNosotros"
                 alt="imagen de integrante de equipo"
               />
-              <div class="card-body">
+              <div class="card-body px-2">
                 <h5 class="card-title mb-3">Dylan Ruben Navarro</h5>
                 <div class="accordion" id="accordionOne">
                   <div>
@@ -149,14 +145,14 @@
             </div>
           </div>
 
-          <div class="col-md-6 col-lg-4 mb-3">
+          <div class="col-md-6 col-lg-3 mb-4">
             <div class="card tarjetaNosotros">
               <img
                 src="../img/santi.jpg"
                 class="img-fluid imgNosotros"
                 alt="imagen de integrante de equipo"
               />
-              <div class="card-body">
+              <div class="card-body px-2">
                 <h5 class="card-title mb-3">Daniel Emmanuel Santi Araoz</h5>
                 <div class="accordion" id="accordionTwo">
                   <div>
@@ -198,14 +194,14 @@
             </div>
           </div>
 
-          <div class="col-md-6 col-lg-4 mb-3">
+          <div class="col-md-6 col-lg-3 mb-4">
             <div class="card tarjetaNosotros">
               <img
                 src="../img/elias.png"
                 class="img-fluid imgNosotros"
                 alt="imagen de integrante de equipo"
               />
-              <div class="card-body">
+              <div class="card-body px-2">
                 <h5 class="card-title mb-3">Elias Javier Juarez</h5>
                 <div class="accordion" id="accordionThree">
                   <div>
@@ -247,14 +243,14 @@
             </div>
           </div>
 
-          <div class="col-md-6 col-lg-4 mb-3">
+          <div class="col-md-6 col-lg-3 mb-4">
             <div class="card tarjetaNosotros">
               <img
                 src="../img/emerson.jpg"
                 class="img-fluid imgNosotros"
                 alt="imagen de integrante de equipo"
               />
-              <div class="card-body">
+              <div class="card-body px-2">
                 <h5 class="card-title mb-3">Emerson Javier Davenheimer</h5>
                 <div class="accordion" id="accordionFour">
                   <div>
@@ -295,55 +291,6 @@
               </div>
             </div>
           </div>
-
-          <div class="col-md-6 col-lg-4 mb-3">
-            <div class="card tarjetaNosotros">
-              <img
-                src="../img/santi.jpg"
-                class="img-fluid imgNosotros"
-                alt="imagen de integrante de equipo"
-              />
-              <div class="card-body">
-                <h5 class="card-title mb-3">Ramiro Adrián Velásquez Barrozo</h5>
-                <div class="accordion" id="accordionFive">
-                  <div>
-                    <h2 class="accordion-header">
-                      <button
-                        class="accordion-button collapsed bg-black"
-                        type="button"
-                        data-bs-toggle="collapse"
-                        data-bs-target="#collapseFive"
-                        aria-expanded="false"
-                        aria-controls="collapseFive"
-                      >
-                        Redes Sociales
-                      </button>
-                    </h2>
-                    <div
-                      id="collapseFive"
-                      class="accordion-collapse collapse"
-                      data-bs-parent="#accordionFive"
-                    >
-                      <div class="accordion-body bg-black">
-                        <a
-                          class="btn btn-primary mb-2 w-75"
-                          href="#"
-                          target="_blank"
-                          ><i class="bi bi-github pe-2"></i>Github</a
-                        >
-                        <a
-                          class="btn btn-primary mb-2 w-75"
-                          href="#"
-                          target="_blank"
-                          ><i class="bi bi-linkedin pe-2"></i>Linkedin</a
-                        >
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
         </article>
       </section>
     </main>
@@ -352,7 +299,7 @@
       <div class="container py-4 py-md-2 px-4 px-md-3 text-body-secondary">
         <div class="row">
           <div class="col-md-4 mb-3 mb-md-0 text-center">
-            <a class="navbar-brand" href="#">
+            <a class="navbar-brand" href="../index.html">
               <img src="../img/Ares.png" alt="Ares logo" class="imgFooter" />
             </a>
             <ul class="list-unstyled small">
@@ -367,14 +314,17 @@
               <li>
                 <a
                   class="link-underline link-underline-opacity-0 link-body-emphasis link-underline-opacity-75-hover"
-                  href="#"
+                  href="./nosotros.html"
                   >Nosotros</a
                 >
               </li>
               <li>
                 <a
                   class="link-underline link-underline-opacity-0 link-body-emphasis link-underline-opacity-75-hover"
-                  href="#"
+                  href="#modalDeRegistro"
+                  aria-expanded="false"
+                  data-bs-toggle="modal" 
+                  data-bs-target="#modalDeRegistro"
                   >Registro</a
                 >
               </li>
@@ -384,11 +334,11 @@
             <h5>Redes</h5>
             <ul class="list-unstyled">
               <li class="mb-2">
-                <a href="#"><i class="bi bi-whatsapp link-light fs-3"></i></a>
-                <a href="#"
+                <a href="./404.html"><i class="bi bi-whatsapp link-light fs-3"></i></a>
+                <a href="./404.html"
                   ><i class="bi bi-facebook link-light fs-3 mx-2"></i
                 ></a>
-                <a href="#"><i class="bi bi-twitter link-light fs-3"></i></a>
+                <a href="./404.html"><i class="bi bi-twitter link-light fs-3"></i></a>
               </li>
             </ul>
           </div>
@@ -396,6 +346,80 @@
       </div>
     </footer>
 
+    <!-- Modal Ingreso -->
+    <div class="modal fade" id="modalDeIngreso" tabindex="-1" aria-labelledby="modalDeIngresoLabel" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+
+          <div class="modal-body">
+            <div class="d-flex justify-content-end p-1">
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+
+            <h4 class="text-center">Iniciar sesión</h4>
+    
+            <form class="container mb-5 formularioIngresar">
+              <div class="my-4">
+                <input type="email" class="form-control mb-2 ingresoEmailInput" placeholder="📧 Ingresar correo" required minlength="5" maxlength="50">
+                <input type="password" class="form-control ingresoPasswordInput" placeholder="🔒 Ingresar clave" required minlength="5" maxlength="50">
+              </div>
+    
+              <div>
+                <div class="d-flex justify-content-between">
+                  <a href="#" class="link link-primary link-underline-opacity-0" data-bs-toggle="modal" 
+                      data-bs-target="#modalDeRegistro">Registrarme</a>
+                  <a href="../pages/404.html" class="link link-primary link-underline-opacity-0">Olvidé mi clave</a>
+                </div>
+                <button 
+                type="submit" 
+                class="btn btn-primary w-100"
+                >Ingresar</button>
+              </div>
+            </form>
+    
+            <h4 class="text-center">- Iniciar sesión con -</h4>
+            <div class="d-flex justify-content-center">
+              <div class="w-75">
+                <a class="btn btn-primary mb-3 w-100 continuarIngreso" href="../pages/404.html"><i class="bi bi-facebook me-1"></i>Continuar con Facebook</a>
+                <a class="btn btn-primary w-100 continuarIngreso" href="../pages/404.html"><i class="bi bi-instagram me-1"></i>Continuar con Instagram</a>
+              </div>
+            </div>
+          </div>
+              
+        </div>
+      </div>
+    </div>
+    
+        <!-- Modal Registro -->
+    <div class="modal fade" id="modalDeRegistro" tabindex="-1" aria-labelledby="modalDeRegistroLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+          <div class="modal-content">
+            <div class="modal-body">
+
+              <div class="d-flex justify-content-end p-1">
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+              </div>
+
+              <h4 class="text-center">Registro</h4>
+      
+              <form class="container mb-5 formularioDeRegistro">
+                <div class="my-4">
+                  <input type="email" class="form-control mb-2 registroEmailInput" placeholder="📧 Ingresar correo" required minlength="5" maxlength="50">
+                  <input type="password" class="form-control registroPasswordInput" placeholder="🔒 Ingresar clave" required minlength="5" maxlength="50">
+                </div>
+                  <button type="submit" class="btn btn-primary w-100 botonRegistro">Registrarme</button>
+              </form>
+      
+              </div>
+            </div>     
+          </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.js"></script>
+    <script src="https://kit.fontawesome.com/63b622224f.js" crossorigin="anonymous"></script>
+    <script src="../js/registro.js" type="module"></script>
+    <script src="../js/login.js" type="module"></script>
     <script
       src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
       integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
