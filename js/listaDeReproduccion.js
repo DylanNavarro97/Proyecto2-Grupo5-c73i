@@ -45,3 +45,9 @@ window.detalleCancion = (idCancion) => {
     imgDetalle.setAttribute("src", img.toString());
     videoDetalle.setAttribute("src", link.toString());
   };
+
+  const cargaInicial = () => {
+    if (listaCancion.length >= 0) {
+      listaCancion.map((cancion) => crearCard(cancion));
+    }
+  };
