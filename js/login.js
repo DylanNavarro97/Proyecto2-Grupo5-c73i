@@ -1,8 +1,16 @@
+import { verificarUsuarioAdmin, verificarUsuarioLogeado } from "./validacionesUsuarioLogeado.js";
 import { verificarEmail, verificarPassword } from "./verificacionesForm.js";
 
 const form = document.querySelector(".formularioIngresar");
 const botonLogOut = document.querySelector(".btnCerrarSesion");
 const botonIngreso = document.querySelector(".btnIngresar");
+const linkAdmin = document.querySelector('.administrar-link')
+var paginaActual = window.location.href;
+// console.log(paginaActual)
+// if (paginaActual.includes("index.html")) {
+//   // Redirigir a otra página
+//   window.location.href = "otra_pagina.html";
+// }
 
 const realizarIngreso = (e) => {
   e.preventDefault();
@@ -65,6 +73,14 @@ const esconderBotonCerrarSesion = () => {
   botonIngreso.className = "btn btn-primary btnIngresar";
 };
 
+const esconderLinkAdmin = () => {
+  linkAdmin.className = "nav-link administrar-link d-none"
+}
+
+const mostrarLinkAdmin = () => {
+  linkAdmin.className = "nav-link administrar-link"
+}
+
 const guardarUserEnLocalStorage = (usuario) => {
   localStorage.setItem("usuarioLogeado", JSON.stringify(usuario));
 };
@@ -125,6 +141,16 @@ const alertaSwalContraseñaIncorrecta = () => {
     text: "Por favor, verifica tu contraseña e inténtalo nuevamente."
   });
 }
+
+if (verificarUsuarioLogeado()){
+  esconderBotonIngreso()
+  if (verificarUsuarioAdmin()){
+    mostrarLinkAdmin()
+  } else {
+    esconderLinkAdmin()
+  }
+}
+
 
 form.addEventListener("submit", realizarIngreso);
 botonIngreso.addEventListener('click', () => limpiarFormulario(form))
