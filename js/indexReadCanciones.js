@@ -1,5 +1,6 @@
 const listaCancion = JSON.parse(localStorage.getItem("cancionKey")) || [];
-const listaReproduccionCancion = JSON.parse(localStorage.getItem("listaReproduccionCancionKey")) || [];
+const listaReproduccionCancion =
+  JSON.parse(localStorage.getItem("listaReproduccionCancionKey")) || [];
 const videoDetalle = document.querySelector("#frameVideo");
 const idDetalle = document.querySelector("#detalleId");
 const artistaDetalle = document.querySelector("#artistaDetalle");
@@ -8,7 +9,6 @@ const imgDetalle = document.querySelector("#imgDetalle");
 const GeneroDetalle = document.querySelector("#GeneroDetalle");
 const formBuscarCancion = document.querySelector("#buscarCanción");
 const inputBuscarCancion = document.querySelector("#inputBuscarCancion");
-
 
 for (let cancion of listaCancion) {
   const crearCard = (cancion) => {
@@ -54,39 +54,44 @@ window.detalleCancion = (idCancion) => {
 };
 
 const guardarEnLocalstorage = () => {
-  localStorage.setItem("listaReproduccionCancionKey", JSON.stringify(listaReproduccionCancion));
+  localStorage.setItem(
+    "listaReproduccionCancionKey",
+    JSON.stringify(listaReproduccionCancion)
+  );
 };
 
 window.cancionFavorita = (idCancion) => {
   const posicionCancion = listaCancion.findIndex(
     (cancion) => cancion.id === idCancion
   );
-  listaReproduccionCancion.push(listaCancion[posicionCancion])
+  listaReproduccionCancion.push(listaCancion[posicionCancion]);
   guardarEnLocalstorage();
 
   Swal.fire({
     title: "La canción fue agregada con exito a la lista de reproducción",
-    icon: "success"
+    icon: "success",
   });
-}
+};
 
-const buscarCancion =(e)=>{
+const buscarCancion = (e) => {
   e.preventDefault();
-const nombre=inputBuscarCancion.value;
+  const nombre = inputBuscarCancion.value;
   const posicionCancion = listaCancion.findIndex(
     (cancion) => cancion.cancion == `${nombre}`
   );
-  if(posicionCancion == -1){
-    Swal.fire({text: `La cancion que buscas no está en nuestro sistema D:`,
-  background:'#1B2631',
-  color:'#fff'}); 
-  }else{
-    const sombraCancion = document.querySelector(`#${listaCancion[posicionCancion].cancion}`);
-    sombraCancion.className += " border border-warning " 
+  if (posicionCancion == -1) {
+    Swal.fire({
+      text: `La cancion que buscas no está en nuestro sistema D:`,
+      background: "#1B2631",
+      color: "#fff",
+    });
+  } else {
+    const sombraCancion = document.querySelector(
+      `#${listaCancion[posicionCancion].cancion}`
+    );
+    sombraCancion.className += " border border-warning ";
     console.log(sombraCancion);
   }
-}
+};
 
-
-
-formBuscarCancion.addEventListener("submit",buscarCancion)
+formBuscarCancion.addEventListener("submit", buscarCancion);
